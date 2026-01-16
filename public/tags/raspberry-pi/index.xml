@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberry Pi on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/raspberry-pi/</link>
+    <description>Recent content in Raspberry Pi on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 11 Jul 2021 13:08:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派各个版本参数明细</title>
+      <link>http://localhost:1313/posts/about-work/raspberry-pi-model-specifications/</link>
+      <pubDate>Sun, 11 Jul 2021 13:08:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/raspberry-pi-model-specifications/</guid>
+      
+      <description>系统整理 Raspberry Pi（树莓派）各主要型号的硬件参数与基础信息，包括发布时间、CPU、内存规格、接口能力等，作为长期可查阅的入门参考资料。</description>
+      
+    </item>
+    
+    <item>
+      <title>入手 Raspberry Pi 显摆一下 DXXXX</title>
+      <link>http://localhost:1313/posts/about-work/first-raspberry-pi-unboxing-thoughts/</link>
+      <pubDate>Sun, 11 Jul 2021 12:58:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/first-raspberry-pi-unboxing-thoughts/</guid>
+      
+      <description>记录第一次入手 Raspberry Pi 4B 时的动机、纠结与使用预期，从一个新手视角出发的真实体验与想法。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

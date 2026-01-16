@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">火车头 / 高铁 AI 仿原创插件无限制版 | José&#39;s Blog</title>
+<meta property="og:title" content="火车头 / 高铁 AI 仿原创插件无限制版 | José&#39;s Blog" />
+<meta name="twitter:title" content="火车头 / 高铁 AI 仿原创插件无限制版 | José&#39;s Blog" />
+<meta itemprop="name" content="火车头 / 高铁 AI 仿原创插件无限制版 | José&#39;s Blog" />
+<meta name="application-name" content="火车头 / 高铁 AI 仿原创插件无限制版 | José&#39;s Blog" />
+<meta property="og:site_name" content="José&#39;s Blog" />
+
+<meta name="description" content="基于 Ollama 的火车头/高铁 AI 仿原创插件实现方案，无调用次数限制，支持本地或服务器部署。">
+<meta itemprop="description" content="基于 Ollama 的火车头/高铁 AI 仿原创插件实现方案，无调用次数限制，支持本地或服务器部署。" />
+<meta property="og:description" content="基于 Ollama 的火车头/高铁 AI 仿原创插件实现方案，无调用次数限制，支持本地或服务器部署。" />
+<meta name="twitter:description" content="基于 Ollama 的火车头/高铁 AI 仿原创插件实现方案，无调用次数限制，支持本地或服务器部署。" />
+
+<meta property="og:locale" content="zh-cn" />
+<meta name="language" content="zh-cn" />
+
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/posts/ai/locoy-ai-rewrite-plugin/" title="中文" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2025-03-28T00:00:00Z />
+    <meta property="article:published_time" content=2025-03-28T00:00:00Z />
+    <meta property="og:url" content="http://localhost:1313/posts/ai/locoy-ai-rewrite-plugin/" />
+
+    
+    <meta property="og:article:author" content="José Jang" />
+    <meta property="article:author" content="José Jang" />
+    <meta name="author" content="José Jang" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "火车头 / 高铁 AI 仿原创插件无限制版",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2025-03-28",
+        "description": "基于 Ollama 的火车头/高铁 AI 仿原创插件实现方案，无调用次数限制，支持本地或服务器部署。",
+        "wordCount":  216 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2025-03-28",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "José\u0027s Blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.154.5">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/ai/locoy-ai-rewrite-plugin/">
+  <meta property="og:site_name" content="José&#39;s Blog">
+  <meta property="og:title" content="火车头 / 高铁 AI 仿原创插件无限制版">
+  <meta property="og:description" content="基于 Ollama 的火车头/高铁 AI 仿原创插件实现方案，无调用次数限制，支持本地或服务器部署。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-28T00:00:00+00:00">
+    <meta property="article:tag" content="火车头">
+    <meta property="article:tag" content="高铁采集">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="Ollama">
+    <meta property="article:tag" content="PHP">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="火车头 / 高铁 AI 仿原创插件无限制版">
+  <meta name="twitter:description" content="基于 Ollama 的火车头/高铁 AI 仿原创插件实现方案，无调用次数限制，支持本地或服务器部署。">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/ai/locoy-ai-rewrite-plugin/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+    <meta name="color-scheme" content="light dark">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>首页</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        首页
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        文章
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        关于
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">火车头 / 高铁 AI 仿原创插件无限制版</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-03-28T00:00:00&#43;00:00" itemprop="datePublished"> 2025-03-28 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>目录</b></summary>
+        <nav id="TableOfContents"></nav>
+    </details>
+            <div class="page-content">
+                <p>看了下论坛，关于火车头AI为原创插件的浏览量还是挺大的，说明很多朋友多有这样的需求，并且大多数的插件都是收费的，或者使用某某平台的api，每篇文章的费用也比较高，今天就自己写一份插件分享给大家。</p>
+<p>最开始还是想要使用python写这个插件的，由于火车头/高铁需要另外配置python环境最后还是决定使用php</p>
+<p>还是先要搭建ai环境，我使用的是ollama,很简单下载安装就好了，如果本地配置低你也可以在服务器部署ollama
+<a href="https://ollama.com/">https://ollama.com/</a>
+这里就不介绍了，网上有很多关于ollama的教程</p>
+<p>我的高铁自带的php环境是5.3
+<img src="/posts/ai/locoy-ai-rewrite-plugin/Snipaste_2025-03-28_12-42-54.png" alt=""></p>
+<p>修改高铁采集器中的System/PHP/php.ini文件
+去掉第七行前面的&rsquo;;'</p>
+<pre tabindex="0"><code>;extension=php_curl.dll
+</code></pre><p><img src="/posts/ai/locoy-ai-rewrite-plugin/Snipaste_2025-03-28_12-10-30.png" alt=""></p>
+<p>在/Plugins文件夹中新建文件：ollama_rewrite.php</p>
+<p>将下面的代码写入文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="nx">error_reporting</span><span class="p">(</span><span class="k">E_ERROR</span> <span class="o">|</span> <span class="k">E_WARNING</span> <span class="o">|</span> <span class="k">E_PARSE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * Ollama API 相关配置
+</span></span></span><span class="line"><span class="cl"><span class="sd"> */</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ollama_url</span> <span class="o">=</span> <span class="s2">&#34;http://localhost:11434/api/generate&#34;</span><span class="p">;</span> <span class="c1">// Ollama API 地址（本地运行）
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * 处理文本并通过 Ollama 进行改写
+</span></span></span><span class="line"><span class="cl"><span class="sd"> */</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">ollama_rewrite</span><span class="p">(</span><span class="nv">$prompt</span><span class="p">,</span> <span class="nv">$model_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="nv">$ollama_url</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Ollama API 请求数据
+</span></span></span><span class="line"><span class="cl">    <span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;model&#39;</span> <span class="o">=&gt;</span> <span class="nv">$model_name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;prompt&#39;</span> <span class="o">=&gt;</span> <span class="s2">&#34;请改写以下文本，使其更加原创化，并直接返回改写后的内容，不要包含解释性话语或前后缀。</span><span class="se">\n\n</span><span class="s2">&#34;</span> <span class="o">.</span> <span class="nv">$prompt</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;stream&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 初始化 cURL
+</span></span></span><span class="line"><span class="cl">    <span class="nv">$ch</span> <span class="o">=</span> <span class="nx">curl_init</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$ollama_url</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nx">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 执行 cURL 请求
+</span></span></span><span class="line"><span class="cl">    <span class="nv">$result</span> <span class="o">=</span> <span class="nx">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">curl_errno</span><span class="p">(</span><span class="nv">$ch</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s2">&#34;Ollama 请求失败: &#34;</span> <span class="o">.</span> <span class="nx">curl_error</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 解析返回 JSON
+</span></span></span><span class="line"><span class="cl">    <span class="nv">$response</span> <span class="o">=</span> <span class="nx">json_decode</span><span class="p">(</span><span class="nv">$result</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$response</span> <span class="o">||</span> <span class="o">!</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$response</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s2">&#34;API 返回错误：&#34;</span> <span class="o">.</span> <span class="nv">$result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">trim</span><span class="p">(</span><span class="nv">$response</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]);</span> <span class="c1">// 确保去除前后空格
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * 采集器数据处理逻辑
+</span></span></span><span class="line"><span class="cl"><span class="sd"> */</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;PageType&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;List&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;Html&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;当前页面的网址为:&#39;</span> <span class="o">.</span> <span class="nv">$LabelUrl</span> <span class="o">.</span> <span class="s2">&#34;</span><span class="se">\r\n</span><span class="s2">页面类型为:&#34;</span> <span class="o">.</span> <span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;PageType&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&#34;</span><span class="se">\r\n</span><span class="s2">接收到的数据是:&#34;</span> <span class="o">.</span> <span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;Html&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;PageType&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;Content&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;Html&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;当前页面的网址为:&#39;</span> <span class="o">.</span> <span class="nv">$LabelUrl</span> <span class="o">.</span> <span class="s2">&#34;</span><span class="se">\r\n</span><span class="s2">页面类型为:&#34;</span> <span class="o">.</span> <span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;PageType&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&#34;</span><span class="se">\r\n</span><span class="s2">接收到的数据是:&#34;</span> <span class="o">.</span> <span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;Html&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;PageType&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;Save&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">$model_name</span> <span class="o">=</span> <span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;模型&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 原创化标题
+</span></span></span><span class="line"><span class="cl">    <span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;标题&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">ollama_rewrite</span><span class="p">(</span><span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;标题&#39;</span><span class="p">],</span> <span class="nv">$model_name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 原创化内容（标题+内容）
+</span></span></span><span class="line"><span class="cl">    <span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;内容&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">ollama_rewrite</span><span class="p">(</span><span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;内容&#39;</span><span class="p">],</span> <span class="nv">$model_name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 追加时间戳
+</span></span></span><span class="line"><span class="cl">    <span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;时间&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">date</span><span class="p">(</span><span class="s1">&#39;Y-m-d H:i:s&#39;</span><span class="p">,</span> <span class="nx">time</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;模型&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$LabelArray</span><span class="p">[</span><span class="s1">&#39;模型&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//############# 必须保留，保证采集器能正确获取数据 #############
+</span></span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="nx">serialize</span><span class="p">(</span><span class="nv">$LabelArray</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err">
+</span></span></span></code></pre></div><p>文件下载
+ollama_rewrite.php: <a href="https://url89.ctfile.com/f/63049189-1493974537-5218e1?p=9487" title="下载代码">下载代码</a> (访问密码: 9487)</p>
+<p><img src="/posts/ai/locoy-ai-rewrite-plugin/Snipaste_2025-03-28_12-23-33.png" alt=""></p>
+<p>这个模型就是你要使用的ollama模型，我这里用的是千问，你也可以使用deepseek-r1，gemma3，qwq，llama等</p>
+<p><img src="/posts/ai/locoy-ai-rewrite-plugin/Snipaste_2025-03-28_12-29-41.png" alt=""></p>
+<p>启用插件保存就能使用了：
+<img src="/posts/ai/locoy-ai-rewrite-plugin/Snipaste_2025-03-28_12-30-47.png" alt=""></p>
+<p>如果你使用的是远程ollama，自行修改api地址
+<img src="/posts/ai/locoy-ai-rewrite-plugin/Snipaste_2025-03-28_12-31-57.png" alt=""></p>
+<p>修改prompt，可以按照你制定的风格进行为原创：
+<img src="/posts/ai/locoy-ai-rewrite-plugin/Snipaste_2025-03-28_12-34-52.png" alt=""></p>
+<p>如：请用接地气的风格改写一下文本，使其更加原创化，并直接返回改写后的内容，不要包含解释性话语或前后缀。
+给ai加上风格，可以让内容不那么机械化，更加的有人情味。</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="mailto:josejangoo@gmail.com?subject=Hello&amp;body=Hi%20Jose" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/jos%c3%a9-jang-2218813a3" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="/index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2026 José Jang.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="回到顶部" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ai-Writing on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/ai-writing/</link>
+    <description>Recent content in Ai-Writing on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/ai-writing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>根据关键词让 Ollama 帮我生成文章和图片并发布到 WordPress</title>
+      <link>http://localhost:1313/posts/ai/ollama-auto-publish-wordpress/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/ollama-auto-publish-wordpress/</guid>
+      
+      <description>使用 Ollama + Stable Diffusion 实现从关键词到文章、图片，再自动发布到 WordPress 的完整自动化流程。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WordPress on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/wordpress/</link>
+    <description>Recent content in WordPress on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 04 Jan 2026 14:43:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WordPress 清理编辑器遗留痕迹</title>
+      <link>http://localhost:1313/posts/about-work/wordpress-clean-editor-artifacts/</link>
+      <pubDate>Sun, 04 Jan 2026 14:43:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wordpress-clean-editor-artifacts/</guid>
+      
+      <description>分析 Notion / AI 编辑器复制粘贴到 WordPress 后产生的 data-start、data-end 等无意义属性问题，并给出安全、可控的清理方案。</description>
+      
+    </item>
+    
+    <item>
+      <title>根据关键词让 Ollama 帮我生成文章和图片并发布到 WordPress</title>
+      <link>http://localhost:1313/posts/ai/ollama-auto-publish-wordpress/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/ollama-auto-publish-wordpress/</guid>
+      
+      <description>使用 Ollama + Stable Diffusion 实现从关键词到文章、图片，再自动发布到 WordPress 的完整自动化流程。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

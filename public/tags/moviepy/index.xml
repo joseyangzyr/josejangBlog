@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Moviepy on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/moviepy/</link>
+    <description>Recent content in Moviepy on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 13 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/moviepy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>视频批量加水印：Python 脚本实现方案</title>
+      <link>http://localhost:1313/posts/about-work/python-video-batch-watermark/</link>
+      <pubDate>Sun, 13 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/python-video-batch-watermark/</guid>
+      
+      <description>使用 Python 和 moviepy 实现视频批量添加水印的脚本方案，适合无管理员权限环境下的视频处理需求。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

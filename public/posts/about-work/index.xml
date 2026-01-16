@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工作 on José&#39;s Blog</title>
+    <link>http://localhost:1313/posts/about-work/</link>
+    <description>Recent content in 工作 on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 04 Jan 2026 14:43:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/about-work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WordPress 清理编辑器遗留痕迹</title>
+      <link>http://localhost:1313/posts/about-work/wordpress-clean-editor-artifacts/</link>
+      <pubDate>Sun, 04 Jan 2026 14:43:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wordpress-clean-editor-artifacts/</guid>
+      
+      <description>分析 Notion / AI 编辑器复制粘贴到 WordPress 后产生的 data-start、data-end 等无意义属性问题，并给出安全、可控的清理方案。</description>
+      
+    </item>
+    
+    <item>
+      <title>帝国 CMS v8 原生 Sitemap.xml 生成方案（无需插件）</title>
+      <link>http://localhost:1313/posts/about-work/empirecms-v8-native-sitemap-generator/</link>
+      <pubDate>Sat, 03 Jan 2026 20:35:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/empirecms-v8-native-sitemap-generator/</guid>
+      
+      <description>提供一套帝国 CMS v8 原生 Sitemap.xml 生成方案，通过 PHP 脚本生成 sitemap index 与子 sitemap，无需依赖任何插件，稳定可控。</description>
+      
+    </item>
+    
+    <item>
+      <title>受够了帝国CMS后台模板编辑界面，给它加个代码样式让他看起来不再是一大坨</title>
+      <link>http://localhost:1313/posts/about-work/empirecms-template-editor-codemirror/</link>
+      <pubDate>Sun, 06 Apr 2025 16:53:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/empirecms-template-editor-codemirror/</guid>
+      
+      <description>记录在帝国 CMS 后台模板编辑页面中引入 CodeMirror，实现代码高亮与可读性优化的具体方法。</description>
+      
+    </item>
+    
+    <item>
+      <title>将音频生成 srt 和 fcpxml 字幕文件</title>
+      <link>http://localhost:1313/posts/about-work/audio-to-srt-fcpxml/</link>
+      <pubDate>Wed, 12 Mar 2025 16:20:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/audio-to-srt-fcpxml/</guid>
+      
+      <description>使用 Whisper 对音频进行语音识别，自动生成 SRT 字幕文件和 FCPXML 字幕文件，适用于 Final Cut Pro 的字幕制作流程。</description>
+      
+    </item>
+    
+    <item>
+      <title>Google Cloud Shell 创建项目并开启 API 服务生成 JSON 密钥</title>
+      <link>http://localhost:1313/posts/about-work/google-cloud-shell-project-json-key/</link>
+      <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/google-cloud-shell-project-json-key/</guid>
+      
+      <description>通过 Google Cloud Shell 创建新项目，开启指定 API 服务，创建服务账号并生成 JSON 密钥的完整命令行流程。</description>
+      
+    </item>
+    
+    <item>
+      <title>微信域名是否被拦截的检测方法（官方跳转接口）</title>
+      <link>http://localhost:1313/posts/about-work/wechat-domain-block-check/</link>
+      <pubDate>Tue, 29 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wechat-domain-block-check/</guid>
+      
+      <description>通过微信官方跳转接口判断域名是否被微信拦截，并结合重定向结果或 Python 正则进行检测的方法说明。</description>
+      
+    </item>
+    
+    <item>
+      <title>视频批量加水印：Python 脚本实现方案</title>
+      <link>http://localhost:1313/posts/about-work/python-video-batch-watermark/</link>
+      <pubDate>Sun, 13 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/python-video-batch-watermark/</guid>
+      
+      <description>使用 Python 和 moviepy 实现视频批量添加水印的脚本方案，适合无管理员权限环境下的视频处理需求。</description>
+      
+    </item>
+    
+    <item>
+      <title>Debian 下绑定、添加多 IP 的方法（单网卡）</title>
+      <link>http://localhost:1313/posts/about-work/debian-multi-ip-single-nic/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/debian-multi-ip-single-nic/</guid>
+      
+      <description>记录在 Debian 系统中单网卡绑定多个 IP 的配置方法，通过 interfaces 文件实现多 IP 配置，适用于服务器多出口或多业务场景。</description>
+      
+    </item>
+    
+    <item>
+      <title>WordPress REST API 最细接口详解</title>
+      <link>http://localhost:1313/posts/about-work/wordpress-rest-api-detail/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wordpress-rest-api-detail/</guid>
+      
+      <description>详细整理 WordPress REST API 接口用法，包含用户注册、登录、Token 获取、接口权限说明与示例代码，适合二次开发与接口对接。</description>
+      
+    </item>
+    
+    <item>
+      <title>50 个影视资源采集站，视频资源站分享</title>
+      <link>http://localhost:1313/posts/about-work/video-resource-sites-collection/</link>
+      <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/video-resource-sites-collection/</guid>
+      
+      <description>整理并分享 50 个影视资源采集站与视频资源站，包含采集站、在线播放站与资源接口说明，适合站长与采集用户参考。</description>
+      
+    </item>
+    
+    <item>
+      <title>python3 宝塔上传文件接口：requests 发送 POST 请求提交上传文件</title>
+      <link>http://localhost:1313/posts/about-work/baota-upload-file-python/</link>
+      <pubDate>Mon, 26 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/baota-upload-file-python/</guid>
+      
+      <description>介绍如何使用 Python requests 库，通过宝塔面板提供的文件上传接口，发送 POST 请求实现文件上传，并附完整示例代码。</description>
+      
+    </item>
+    
+    <item>
+      <title>树莓派各个版本参数明细</title>
+      <link>http://localhost:1313/posts/about-work/raspberry-pi-model-specifications/</link>
+      <pubDate>Sun, 11 Jul 2021 13:08:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/raspberry-pi-model-specifications/</guid>
+      
+      <description>系统整理 Raspberry Pi（树莓派）各主要型号的硬件参数与基础信息，包括发布时间、CPU、内存规格、接口能力等，作为长期可查阅的入门参考资料。</description>
+      
+    </item>
+    
+    <item>
+      <title>入手 Raspberry Pi 显摆一下 DXXXX</title>
+      <link>http://localhost:1313/posts/about-work/first-raspberry-pi-unboxing-thoughts/</link>
+      <pubDate>Sun, 11 Jul 2021 12:58:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/first-raspberry-pi-unboxing-thoughts/</guid>
+      
+      <description>记录第一次入手 Raspberry Pi 4B 时的动机、纠结与使用预期，从一个新手视角出发的真实体验与想法。</description>
+      
+    </item>
+    
+    <item>
+      <title>frp 内网穿透，远程连接树莓派</title>
+      <link>http://localhost:1313/posts/about-work/frp-nat-raspberry-pi-remote-access/</link>
+      <pubDate>Sat, 10 Jul 2021 20:08:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/frp-nat-raspberry-pi-remote-access/</guid>
+      
+      <description>记录通过 frp 实现内网穿透，从外部网络远程连接树莓派的实际操作过程，包括热点组网、IP 探测和基础 frp 配置。</description>
+      
+    </item>
+    
+    <item>
+      <title>Python 百度链接提交：主动推送链接给百度，实现快速收录</title>
+      <link>http://localhost:1313/posts/about-work/baidu-link-push-python/</link>
+      <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/baidu-link-push-python/</guid>
+      
+      <description>介绍如何使用 Python 调用百度资源平台接口，主动推送站点 URL 给百度搜索引擎，以提升新页面的收录速度。</description>
+      
+    </item>
+    
+    <item>
+      <title>WordPress 外部链接跳转的实现方式</title>
+      <link>http://localhost:1313/posts/about-work/wp-external-link-redirect/</link>
+      <pubDate>Fri, 25 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wp-external-link-redirect/</guid>
+      
+      <description>记录一种在 WordPress 中实现外部链接跳转与参数校验的方法，并给出 Hugo 静态博客下的等价实现方案。</description>
+      
+    </item>
+    
+    <item>
+      <title>WordPress 自动本地化外链图片的实现方式</title>
+      <link>http://localhost:1313/posts/about-work/wp-auto-save-remote-images/</link>
+      <pubDate>Fri, 25 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wp-auto-save-remote-images/</guid>
+      
+      <description>记录一种在 WordPress 中自动下载并本地化外链图片的实现方案，并分析在 Hugo 静态博客体系下的替代思路。</description>
+      
+    </item>
+    
+    <item>
+      <title>WordPress 输入密码显示隐藏内容的实现方式</title>
+      <link>http://localhost:1313/posts/about-work/wp-secret-content/</link>
+      <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wp-secret-content/</guid>
+      
+      <description>记录一种在 WordPress 中通过 shortcode 实现输入密码显示隐藏内容的方法，并给出 Hugo 静态博客的等价实现方案。</description>
+      
+    </item>
+    
+    <item>
+      <title>Nginx 判断搜索引擎蜘蛛并进行跳转的配置示例</title>
+      <link>http://localhost:1313/posts/about-work/nginx-spider-redirect/</link>
+      <pubDate>Mon, 17 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/nginx-spider-redirect/</guid>
+      
+      <description>记录一段通过 Nginx 判断搜索引擎蜘蛛 User-Agent，仅允许蜘蛛访问真实页面，其他访问进行跳转的配置示例。</description>
+      
+    </item>
+    
+    <item>
+      <title>建立数据库连接时出错：Error establishing a database connection 排查记录</title>
+      <link>http://localhost:1313/posts/about-work/wp-db-error-establishing-connection/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wp-db-error-establishing-connection/</guid>
+      
+      <description>一次 WordPress 出现 Error establishing a database connection 的真实排查过程，记录数据库登录、MariaDB 状态与最终解决思路。</description>
+      
+    </item>
+    
+    <item>
+      <title>一个非常简单的 Selenium 提交历史记录脚本</title>
+      <link>http://localhost:1313/posts/about-work/selenium-submit-history/</link>
+      <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/selenium-submit-history/</guid>
+      
+      <description>使用 Selenium 自动向 Wayback Machine 提交页面快照的简单脚本，适合做站点历史留档或定期备份。</description>
+      
+    </item>
+    
+    <item>
+      <title>robots.txt 究竟要怎样写才是对的？</title>
+      <link>http://localhost:1313/posts/about-work/robots-txt-how-to-write/</link>
+      <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/robots-txt-how-to-write/</guid>
+      
+      <description>结合站长工具生成示例，讲清 robots.txt 的正确写法、常见误区，以及不同搜索引擎蜘蛛的实际处理方式。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

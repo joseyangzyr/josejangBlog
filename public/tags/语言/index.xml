@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>语言 on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E8%AF%AD%E8%A8%80/</link>
+    <description>Recent content in 语言 on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 22 Dec 2019 20:26:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E8%AF%AD%E8%A8%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>初入菲律宾感觉语言不通是一件很可怕的事情</title>
+      <link>http://localhost:1313/posts/trivial-matter/first-time-philippines-language-barrier/</link>
+      <pubDate>Sun, 22 Dec 2019 20:26:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/trivial-matter/first-time-philippines-language-barrier/</guid>
+      
+      <description>记录初到菲律宾时因语言不通带来的不安与真实感受。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

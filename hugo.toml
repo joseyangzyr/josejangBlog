@@ -1,0 +1,84 @@
+title = "José's Blog"
+baseURL = "http://localhost:1313/"
+
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+defaultContentLanguageInSubdir = false
+
+enableEmoji = true
+theme = "hugo-blog-awesome"
+
+ignoreErrors = ["additional-script-loading-error"]
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+
+############################
+# 中文（主站）
+############################
+[Languages.zh-cn]
+  languageName = "中文"
+  languageCode = "zh-cn"
+  contentDir = "content/zh"
+  weight = 1
+
+  [Languages.zh-cn.menu]
+    [[Languages.zh-cn.menu.main]]
+      pageRef = "/"
+      name = "首页"
+      url = "/"
+      weight = 10
+
+    [[Languages.zh-cn.menu.main]]
+      pageRef = "posts"
+      name = "文章"
+      url = "/posts/"
+      weight = 20
+    
+    [[Languages.zh-cn.menu.main]]
+      pageRef = "about"
+      name = "关于"
+      url = "/about/"
+      weight = 50
+
+  [Languages.zh-cn.params]
+    sitename = "José's Blog"
+    description = "记录 Hugo / WordPress / AI 自动化 与可复用的实践经验"
+    defaultColor = "dark"
+    mainSections = ["posts"]
+    toc = true
+    tocOpen = false
+    goToTop = true
+    dateFormat = "2006-01-02"
+    rssFeedDescription = "summary"
+
+  [Languages.zh-cn.params.author]
+    avatar = "avatar.png"
+    name = "José Jang"
+    intro = "José's blog"
+    description = "菲律宾生活琐碎，和日常笔记"
+
+
+############################
+# 社交 & 其他
+############################
+
+[[params.socialIcons]]
+name = "email"
+url = "mailto:josejangoo@gmail.com?subject=Hello&body=Hi%20Jose"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/josé-jang-2218813a3"
+
+[[params.socialIcons]]
+name = "rss"
+url = "/index.xml"
+

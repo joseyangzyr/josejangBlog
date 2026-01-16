@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>域名检测 on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E5%9F%9F%E5%90%8D%E6%A3%80%E6%B5%8B/</link>
+    <description>Recent content in 域名检测 on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 29 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%9F%9F%E5%90%8D%E6%A3%80%E6%B5%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微信域名是否被拦截的检测方法（官方跳转接口）</title>
+      <link>http://localhost:1313/posts/about-work/wechat-domain-block-check/</link>
+      <pubDate>Tue, 29 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wechat-domain-block-check/</guid>
+      
+      <description>通过微信官方跳转接口判断域名是否被微信拦截，并结合重定向结果或 Python 正则进行检测的方法说明。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

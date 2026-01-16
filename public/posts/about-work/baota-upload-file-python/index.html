@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">python3 宝塔上传文件接口：requests 发送 POST 请求提交上传文件 | José&#39;s Blog</title>
+<meta property="og:title" content="python3 宝塔上传文件接口：requests 发送 POST 请求提交上传文件 | José&#39;s Blog" />
+<meta name="twitter:title" content="python3 宝塔上传文件接口：requests 发送 POST 请求提交上传文件 | José&#39;s Blog" />
+<meta itemprop="name" content="python3 宝塔上传文件接口：requests 发送 POST 请求提交上传文件 | José&#39;s Blog" />
+<meta name="application-name" content="python3 宝塔上传文件接口：requests 发送 POST 请求提交上传文件 | José&#39;s Blog" />
+<meta property="og:site_name" content="José&#39;s Blog" />
+
+<meta name="description" content="介绍如何使用 Python requests 库，通过宝塔面板提供的文件上传接口，发送 POST 请求实现文件上传，并附完整示例代码。">
+<meta itemprop="description" content="介绍如何使用 Python requests 库，通过宝塔面板提供的文件上传接口，发送 POST 请求实现文件上传，并附完整示例代码。" />
+<meta property="og:description" content="介绍如何使用 Python requests 库，通过宝塔面板提供的文件上传接口，发送 POST 请求实现文件上传，并附完整示例代码。" />
+<meta name="twitter:description" content="介绍如何使用 Python requests 库，通过宝塔面板提供的文件上传接口，发送 POST 请求实现文件上传，并附完整示例代码。" />
+
+<meta property="og:locale" content="zh-cn" />
+<meta name="language" content="zh-cn" />
+
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/posts/about-work/baota-upload-file-python/" title="中文" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2021-07-26T00:00:00Z />
+    <meta property="article:published_time" content=2021-07-26T00:00:00Z />
+    <meta property="og:url" content="http://localhost:1313/posts/about-work/baota-upload-file-python/" />
+
+    
+    <meta property="og:article:author" content="José Jang" />
+    <meta property="article:author" content="José Jang" />
+    <meta name="author" content="José Jang" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "python3 宝塔上传文件接口：requests 发送 POST 请求提交上传文件",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2021-07-26",
+        "description": "介绍如何使用 Python requests 库，通过宝塔面板提供的文件上传接口，发送 POST 请求实现文件上传，并附完整示例代码。",
+        "wordCount":  219 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2021-07-26",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "José\u0027s Blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.154.5">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/about-work/baota-upload-file-python/">
+  <meta property="og:site_name" content="José&#39;s Blog">
+  <meta property="og:title" content="python3 宝塔上传文件接口：requests 发送 POST 请求提交上传文件">
+  <meta property="og:description" content="介绍如何使用 Python requests 库，通过宝塔面板提供的文件上传接口，发送 POST 请求实现文件上传，并附完整示例代码。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-07-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-07-26T00:00:00+00:00">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="python3 宝塔上传文件接口：requests 发送 POST 请求提交上传文件">
+  <meta name="twitter:description" content="介绍如何使用 Python requests 库，通过宝塔面板提供的文件上传接口，发送 POST 请求实现文件上传，并附完整示例代码。">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/about-work/baota-upload-file-python/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+    <meta name="color-scheme" content="light dark">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>首页</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        首页
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        文章
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        关于
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">python3 宝塔上传文件接口：requests 发送 POST 请求提交上传文件</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2021-07-26T00:00:00&#43;00:00" itemprop="datePublished"> 2021-07-26 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>目录</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#宝塔上传接口说明">宝塔上传接口说明</a>
+      <ul>
+        <li><a href="#request-url-示例">Request URL 示例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <p>本文记录一次使用 <strong>Python3 + requests</strong> 调用 <strong>宝塔面板文件上传接口</strong> 的实际过程，适合用于自动化部署、文件同步、远程上传等场景。</p>
+<hr>
+<h2 id="宝塔上传接口说明">宝塔上传接口说明</h2>
+<p>宝塔面板提供了文件管理相关接口，可以通过 <strong>POST 请求</strong> 将文件上传到指定目录。
+宝塔上传chrome截图：
+<img src="/posts/about-work/baota-upload-file-python/chrome_1AnCZDY4vY.png" alt=""></p>
+<h3 id="request-url-示例">Request URL 示例</h3>
+<blockquote>
+<p>/files?action=upload</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">## 定义主要函数</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">PingBaoTa</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>  <span class="c1"># 拼接链接</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;http://&#34;</span> <span class="o">+</span> <span class="n">ip</span> <span class="o">+</span> <span class="s2">&#34;:&#34;</span> <span class="o">+</span> <span class="n">port</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">GetMd5</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>  <span class="c1"># 参考了Demo.py</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span> <span class="o">=</span> <span class="n">md5</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&#34;utf-8&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">GetKeyData</span><span class="p">(</span><span class="n">apikey</span><span class="p">):</span>  <span class="c1"># 签名算法</span>
+</span></span><span class="line"><span class="cl">    <span class="n">now_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p_data</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;request_token&#34;</span><span class="p">:</span> <span class="n">GetMd5</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">now_time</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;&#34;</span> <span class="o">+</span> <span class="n">GetMd5</span><span class="p">(</span><span class="n">apikey</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;request_time&#34;</span><span class="p">:</span> <span class="n">now_time</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">p_data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">GetSitePath</span><span class="p">(</span><span class="n">btpanel</span><span class="p">,</span> <span class="n">btkey</span><span class="p">,</span> <span class="n">site</span><span class="p">):</span>   <span class="c1"># 获取指定站点目录 若站点不存在则返回-1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">Websites</span><span class="p">(</span><span class="n">btpanel</span><span class="p">,</span> <span class="n">btkey</span><span class="p">)[</span><span class="s2">&#34;data&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="n">site</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">i</span><span class="p">[</span><span class="s2">&#34;path&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">WebUpload</span><span class="p">(</span><span class="n">btpanel</span><span class="p">,</span> <span class="n">btkey</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>    <span class="c1">#上传文件</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    btpanel                面板地址
+</span></span></span><span class="line"><span class="cl"><span class="s2">    btkey                  API密匙
+</span></span></span><span class="line"><span class="cl"><span class="s2">    site                   设置上传文件的站点
+</span></span></span><span class="line"><span class="cl"><span class="s2">    file_name              上传文件
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#&#39;Content-Type&#39;: &#39;application/octet-stream&#39;,	#这里这个参数一定不要给，否则会失败</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span> <span class="n">btpanel</span> <span class="o">+</span> <span class="n">config</span><span class="p">[</span><span class="s2">&#34;WebUpload&#34;</span><span class="p">]</span>		<span class="c1"># config[&#34;WebUpload&#34;]为post请求地址</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">GetKeyData</span><span class="p">(</span><span class="n">btkey</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f_path</span> <span class="o">=</span> <span class="n">GetSitePath</span><span class="p">(</span><span class="n">btpanel</span><span class="p">,</span> <span class="n">btkey</span><span class="p">,</span> <span class="n">site</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file</span> <span class="o">=</span> <span class="n">file_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_tup</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#file: ( &#39;blob&#39;, open(file_name, &#39;rb&#39;), &#39;application/octet-stream&#39;),	#用这个上传文件时会创建一个临时文件名，但是文件内并无任何内容，去宝塔论坛上看到也有和我一样的只有一个文件名的情况，所以我们把post请求种的每一项拆分开的到如下：</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;blob&#39;</span><span class="p">:</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;filename&#34;</span> <span class="p">:</span><span class="s2">&#34;blob&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/octet-stream&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Content-Disposition&#34;</span><span class="p">:</span> <span class="s2">&#34;form-data&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;f_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f_path</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;f_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">file</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;f_size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">file_name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;f_start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">files</span><span class="o">=</span><span class="n">file_tup</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resp</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">resp</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_ApiKey</span> <span class="o">=</span> <span class="s2">&#34;**********&#34;</span>  <span class="c1">#宝塔api key在宝塔后台 面板设置&gt;api接口&gt;接口密钥 获得</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_BtPanel</span> <span class="o">=</span> <span class="s2">&#34;0.0.0.0&#34;</span>	<span class="c1">#面板ip</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_Port</span> <span class="o">=</span> <span class="s2">&#34;12345&#34;</span>		<span class="c1">#面板端口</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_Url</span> <span class="o">=</span> <span class="n">PingBaoTa</span><span class="p">(</span><span class="n">_BtPanel</span><span class="p">,</span> <span class="n">_Port</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span> <span class="p">(</span><span class="n">WebUpload</span><span class="p">(</span><span class="n">_Url</span><span class="p">,</span> <span class="n">_ApiKey</span><span class="p">,</span> <span class="s2">&#34;baidu.com&#34;</span><span class="p">,</span> <span class="s2">&#34;./wordpress/wordpress.zip&#34;</span><span class="p">))</span>	<span class="c1">#要将文件./wordpress/wordpress.zip上传到宝塔后台baidu.com的站点并打印出返回结果</span>
+</span></span></code></pre></div><p>输出结果为：</p>
+<blockquote>
+<p>{&ldquo;status&rdquo;: true, &ldquo;msg&rdquo;: &ldquo;上传成功!&rdquo;}</p>
+</blockquote>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="mailto:josejangoo@gmail.com?subject=Hello&amp;body=Hi%20Jose" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/jos%c3%a9-jang-2218813a3" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="/index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2026 José Jang.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="回到顶部" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

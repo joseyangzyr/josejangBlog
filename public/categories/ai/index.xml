@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI on José&#39;s Blog</title>
+    <link>http://localhost:1313/categories/ai/</link>
+    <description>Recent content in AI on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 10 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我如何用 AI 半自动维护一个网站（完整流程）</title>
+      <link>http://localhost:1313/posts/ai/ai-semi-automatic-site-maintenance/</link>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/ai-semi-automatic-site-maintenance/</guid>
+      
+      <description>记录我如何用 AI 构建一套“半自动而非全自动”的网站维护流程，覆盖内容生产、结构、SEO、内链与判断边界，避免 AI 失控。</description>
+      
+    </item>
+    
+    <item>
+      <title>如何本地部署 DeepSeek？</title>
+      <link>http://localhost:1313/posts/ai/deploy-deepseek-locally/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/deploy-deepseek-locally/</guid>
+      
+      <description>DeepSeek 最近非常火，本文用最短时间演示如何在本地通过 Ollama 部署 DeepSeek 模型，包含下载安装到模型选择的完整流程。</description>
+      
+    </item>
+    
+    <item>
+      <title>如何去背？Python rembg 实现 AI 自动去背景的完整教程</title>
+      <link>http://localhost:1313/posts/ai/python-rembg-remove-background/</link>
+      <pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/python-rembg-remove-background/</guid>
+      
+      <description>基于 rembg（U-2-Net）的 Python 自动去背景完整示例，支持批量处理 PNG/JPG/WebP，适合本地或服务器使用。</description>
+      
+    </item>
+    
+    <item>
+      <title>火车头 / 高铁 AI 仿原创插件无限制版</title>
+      <link>http://localhost:1313/posts/ai/locoy-ai-rewrite-plugin/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/locoy-ai-rewrite-plugin/</guid>
+      
+      <description>基于 Ollama 的火车头/高铁 AI 仿原创插件实现方案，无调用次数限制，支持本地或服务器部署。</description>
+      
+    </item>
+    
+    <item>
+      <title>将音频生成 srt 和 fcpxml 字幕文件</title>
+      <link>http://localhost:1313/posts/about-work/audio-to-srt-fcpxml/</link>
+      <pubDate>Wed, 12 Mar 2025 16:20:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/audio-to-srt-fcpxml/</guid>
+      
+      <description>使用 Whisper 对音频进行语音识别，自动生成 SRT 字幕文件和 FCPXML 字幕文件，适用于 Final Cut Pro 的字幕制作流程。</description>
+      
+    </item>
+    
+    <item>
+      <title>不良图片识别并自动打码</title>
+      <link>http://localhost:1313/posts/ai/nsfw-image-detect-and-blur/</link>
+      <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/nsfw-image-detect-and-blur/</guid>
+      
+      <description>基于 YOLO 的不良图片识别方案，对检测到的敏感区域进行自动打码，适用于内容审核、隐私保护等场景。</description>
+      
+    </item>
+    
+    <item>
+      <title>根据关键词让 Ollama 帮我生成文章和图片并发布到 WordPress</title>
+      <link>http://localhost:1313/posts/ai/ollama-auto-publish-wordpress/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/ollama-auto-publish-wordpress/</guid>
+      
+      <description>使用 Ollama + Stable Diffusion 实现从关键词到文章、图片，再自动发布到 WordPress 的完整自动化流程。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

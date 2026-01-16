@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>José&#39;s Blog</title>
+    <link>http://localhost:1313/en/</link>
+    <description>Recent content on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/en/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/en/about/</guid>
+      
+      <description>&lt;p&gt;Hi, I’m &lt;strong&gt;José&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This blog is a place where I document &lt;strong&gt;practical, reusable technical work&lt;/strong&gt; — not tutorials written for clicks, and not trend-chasing summaries.&lt;/p&gt;
+&lt;p&gt;Most of what you’ll find here comes from things I actually use or maintain in real projects, including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Migrating from &lt;strong&gt;WordPress to Hugo&lt;/strong&gt; and other static site setups&lt;/li&gt;
+&lt;li&gt;Automating content workflows with &lt;strong&gt;AI and scripts&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Building systems that are meant to run quietly for a long time&lt;/li&gt;
+&lt;li&gt;Notes from working remotely and living in the Philippines&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I care more about &lt;strong&gt;why a solution was chosen&lt;/strong&gt; than just &lt;em&gt;how&lt;/em&gt; to implement it.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

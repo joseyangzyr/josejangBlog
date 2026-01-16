@@ -1,0 +1,120 @@
+{{ with .Params.video }}
+<div class="responsive-video">
+  <div id="player"></div>
+</div>
+{{ end }}
+
+{{ with .Params.subtitle }}
+<div id="subtitles" aria-label="视频字幕列表"></div>
+{{ end }}
+
+{{ if and .Params.video .Params.subtitle }}
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+let player = null;
+let subtitles = [];
+let subtitleDivs = [];
+let rafId = null;
+
+/* ===== 字幕同步主循环 ===== */
+function syncSubtitle() {
+  if (player && player.getCurrentTime) {
+    highlightCurrentSubtitle(player.getCurrentTime());
+  }
+  rafId = requestAnimationFrame(syncSubtitle);
+}
+
+/* ===== YouTube API Ready ===== */
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    videoId: '{{ .Params.video.id }}',
+    host: 'https://www.youtube-nocookie.com',
+    playerVars: { playsinline: 1 },
+    events: {
+      onReady: () => {
+        rafId = requestAnimationFrame(syncSubtitle);
+      }
+    }
+  });
+}
+
+/* ===== 页面卸载清理 ===== */
+window.addEventListener('beforeunload', () => {
+  if (rafId) cancelAnimationFrame(rafId);
+});
+
+/* ===== 高亮当前字幕 ===== */
+function highlightCurrentSubtitle(currentTime) {
+  let activeIndex = -1;
+
+  for (let i = 0; i < subtitles.length; i++) {
+    const start = subtitles[i].time;
+    const end = subtitles[i + 1]?.time ?? Number.MAX_VALUE;
+    if (currentTime >= start && currentTime < end) {
+      activeIndex = i;
+      break;
+    }
+  }
+
+  subtitleDivs.forEach((div, idx) => {
+    if (idx === activeIndex) {
+      if (!div.classList.contains('active')) {
+        subtitleDivs.forEach(d => d.classList.remove('active'));
+        div.classList.add('active');
+        div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    } else {
+      div.classList.remove('active');
+    }
+  });
+}
+
+/* ===== SRT 解析 ===== */
+function parseSRT(data) {
+  const blocks = data.trim().split(/\r?\n\r?\n/);
+  return blocks.map(block => {
+    const lines = block.trim().split(/\r?\n/);
+    const [start] = lines[1].split(' --> ');
+    return {
+      time: timeToSeconds(start),
+      text: lines.slice(2).join(' ')
+    };
+  });
+}
+
+function timeToSeconds(time) {
+  const [h, m, sms] = time.trim().split(':');
+  const [s, ms = '0'] = sms.split(',');
+  return +h * 3600 + +m * 60 + +s + +ms / 1000;
+}
+
+/* ===== 渲染字幕 ===== */
+function renderSubtitles(subs) {
+  const container = document.getElementById('subtitles');
+  container.innerHTML = '';
+  subtitleDivs = [];
+
+  subs.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'subtitle';
+    div.textContent = item.text;
+    div.onclick = () => {
+      if (player && player.seekTo) {
+        player.seekTo(item.time, true);
+        player.playVideo();
+      }
+    };
+    container.appendChild(div);
+    subtitleDivs.push(div);
+  });
+}
+
+/* ===== 加载字幕 ===== */
+fetch('{{ .Params.subtitle.url }}')
+  .then(r => r.text())
+  .then(data => {
+    subtitles = parseSRT(data);
+    renderSubtitles(subtitles);
+  });
+</script>
+{{ end }}

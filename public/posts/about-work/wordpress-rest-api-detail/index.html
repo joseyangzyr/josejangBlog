@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">WordPress REST API 最细接口详解 | José&#39;s Blog</title>
+<meta property="og:title" content="WordPress REST API 最细接口详解 | José&#39;s Blog" />
+<meta name="twitter:title" content="WordPress REST API 最细接口详解 | José&#39;s Blog" />
+<meta itemprop="name" content="WordPress REST API 最细接口详解 | José&#39;s Blog" />
+<meta name="application-name" content="WordPress REST API 最细接口详解 | José&#39;s Blog" />
+<meta property="og:site_name" content="José&#39;s Blog" />
+
+<meta name="description" content="详细整理 WordPress REST API 接口用法，包含用户注册、登录、Token 获取、接口权限说明与示例代码，适合二次开发与接口对接。">
+<meta itemprop="description" content="详细整理 WordPress REST API 接口用法，包含用户注册、登录、Token 获取、接口权限说明与示例代码，适合二次开发与接口对接。" />
+<meta property="og:description" content="详细整理 WordPress REST API 接口用法，包含用户注册、登录、Token 获取、接口权限说明与示例代码，适合二次开发与接口对接。" />
+<meta name="twitter:description" content="详细整理 WordPress REST API 接口用法，包含用户注册、登录、Token 获取、接口权限说明与示例代码，适合二次开发与接口对接。" />
+
+<meta property="og:locale" content="zh-cn" />
+<meta name="language" content="zh-cn" />
+
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/posts/about-work/wordpress-rest-api-detail/" title="中文" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2021-12-28T00:00:00Z />
+    <meta property="article:published_time" content=2021-12-28T00:00:00Z />
+    <meta property="og:url" content="http://localhost:1313/posts/about-work/wordpress-rest-api-detail/" />
+
+    
+    <meta property="og:article:author" content="José Jang" />
+    <meta property="article:author" content="José Jang" />
+    <meta name="author" content="José Jang" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "WordPress REST API 最细接口详解",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2021-12-28",
+        "description": "详细整理 WordPress REST API 接口用法，包含用户注册、登录、Token 获取、接口权限说明与示例代码，适合二次开发与接口对接。",
+        "wordCount":  1885 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2021-12-28",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "José\u0027s Blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.154.5">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/about-work/wordpress-rest-api-detail/">
+  <meta property="og:site_name" content="José&#39;s Blog">
+  <meta property="og:title" content="WordPress REST API 最细接口详解">
+  <meta property="og:description" content="详细整理 WordPress REST API 接口用法，包含用户注册、登录、Token 获取、接口权限说明与示例代码，适合二次开发与接口对接。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-12-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-12-28T00:00:00+00:00">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="WordPress REST API 最细接口详解">
+  <meta name="twitter:description" content="详细整理 WordPress REST API 接口用法，包含用户注册、登录、Token 获取、接口权限说明与示例代码，适合二次开发与接口对接。">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/about-work/wordpress-rest-api-detail/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+    <meta name="color-scheme" content="light dark">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>首页</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        首页
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        文章
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        关于
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">WordPress REST API 最细接口详解</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2021-12-28T00:00:00&#43;00:00" itemprop="datePublished"> 2021-12-28 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>目录</b></summary>
+        <nav id="TableOfContents"></nav>
+    </details>
+            <div class="page-content">
+                <p>WordPress Rest API 最细接口详解
+注：
+1、以下接口拼接自己的域名，如：https://www.josejang.com/
+2、在wpAPI文档中，有些接口没有提供，建站时需要后台服务器帮助提供，以下我这边是自己后台服务器提供接口用米字号作*标记。
+3、以下接口get请求一般请求头可以不带token。
+4、wo记得没错的话，wp的token有效期为24小时。
+————————————————
+1、登录注册模块
+1.1、用户注册 *
+请求协议|请求方法：HTTP|POST
+接口路径：/fapi/userregster.php
+请求参数：</p>
+<p>参数名	说明	类型
+username	用户名，必填	[string]
+password	密码，必填	[string]
+email	邮箱	[string]
+nickname	昵称	[string]
+phone	手机号	[string]
+成功示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="mi">24</span>
+</span></span></code></pre></div><p>直接返回新用户id。</p>
+<p>1.2、获取Token
+请求协议|请求方法：HTTP|POST</p>
+<p>接口路径：/wp-json/jwt-auth/v1/token
+请求参数
+参数类型：表单</p>
+<p>参数名	说明	必填	类型
+username	用户名	是	[string]
+password	密码	是	[string]
+成功示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;token&#34;</span><span class="o">:</span><span class="s2">&#34;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC96aG91YnV5aS5tZWlsYXNoaWRhaS5jbiIsImlhdCI6MTU4Njc2NDA3MCwibmJmIjoxNTg2NzY0MDcwLCJleHAiOjE1ODczNjg4NzAsImRhdGEiOnsidXNlciI6eyJpZCI6IjIyIn19fQ.7kgtWfUTlm6tbZX63V7OEpo08PAxakZiK4e9DE6Nvb8&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;user_email&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;user_nicename&#34;</span><span class="o">:</span><span class="s2">&#34;100022&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;user_display_name&#34;</span><span class="o">:</span><span class="s2">&#34;1111111&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>1.3、验证Token
+请求协议|请求方法：HTTP|POST</p>
+<p>接口路径：/wp-json/jwt-auth/v1/token/validate
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+成功示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;code&#34;</span><span class="o">:</span><span class="s2">&#34;jwt_auth_valid_token&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;data&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;status&#34;</span><span class="o">:</span><span class="mi">200</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>注意点1： 获取的token要放在请求头，并且token值的格式必须为：Bearer+token值，否侧无法判断。
+注意点2： 要实现这个接口，需要后台服务器授权验证，详细参考：使用 JWT Authentication 验证 WordPress REST API 权限，只有授权验证处理通过，这个接口才能请求成功，否则会返回错误，要求授权。</p>
+<p>1.4、账户登录 *
+请求协议|请求方法：HTTP|POST</p>
+<p>接口路径：/fapi/loginwithtoken.php</p>
+<p>请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+请求参数：</p>
+<p>参数名	说明	必填	类型
+username	用户名	是	[string]
+pwd	密码	是	[string]
+成功示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;data&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;ID&#34;</span><span class="o">:</span><span class="s2">&#34;22&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;user_login&#34;</span><span class="o">:</span><span class="s2">&#34;1111111&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;user_pass&#34;</span><span class="o">:</span><span class="s2">&#34;</span><span class="si">$P$BSz</span><span class="s2">.lD0LqQxK/v8E9Un1Cc3VwnURpp.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;user_nicename&#34;</span><span class="o">:</span><span class="s2">&#34;100022&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;user_email&#34;</span><span class="o">:</span><span class="s2">&#34;wyp001@123.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;user_url&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;user_registered&#34;</span><span class="o">:</span><span class="s2">&#34;2020-04-13 07:23:02&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;user_activation_key&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;user_status&#34;</span><span class="o">:</span><span class="s2">&#34;0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;display_name&#34;</span><span class="o">:</span><span class="s2">&#34;1111111&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;father_id&#34;</span><span class="o">:</span><span class="s2">&#34;0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;reg_ip&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;ID&#34;</span><span class="o">:</span><span class="mi">22</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;caps&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author&#34;</span><span class="o">:</span><span class="k">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;cap_key&#34;</span><span class="o">:</span><span class="s2">&#34;wp_capabilities&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;roles&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;allcaps&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;upload_files&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;edit_posts&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;edit_published_posts&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;publish_posts&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;read&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;level_2&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;level_1&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;level_0&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;delete_posts&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;delete_published_posts&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author&#34;</span><span class="o">:</span><span class="k">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;filter&#34;</span><span class="o">:</span><span class="k">null</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>1.5、获取用户信息
+请求协议|请求方法：HTTP|GET</p>
+<p>接口路径：/wp-json/wp/v2/users/me</p>
+<p>请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	用户token，格式：Bearer+token
+成功示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;id&#34;</span><span class="o">:</span><span class="mi">22</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;1111111&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;url&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;description&#34;</span><span class="o">:</span><span class="s2">&#34;描述啊描述&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;link&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/author/100022/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;slug&#34;</span><span class="o">:</span><span class="s2">&#34;100022&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;avatar_urls&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;24&#34;</span><span class="o">:</span><span class="s2">&#34;http://cn.gravatar.com/avatar/cf29dfa8761d26cf525bd3275293a527?s=24&amp;d=mm&amp;r=g&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;48&#34;</span><span class="o">:</span><span class="s2">&#34;http://cn.gravatar.com/avatar/cf29dfa8761d26cf525bd3275293a527?s=48&amp;d=mm&amp;r=g&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;96&#34;</span><span class="o">:</span><span class="s2">&#34;http://cn.gravatar.com/avatar/cf29dfa8761d26cf525bd3275293a527?s=96&amp;d=mm&amp;r=g&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;meta&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;woocommerce_meta&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;activity_panel_inbox_last_read&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;activity_panel_reviews_last_read&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;categories_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;coupons_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;customers_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;orders_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;products_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;revenue_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;taxes_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;variations_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;dashboard_sections&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;dashboard_chart_type&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;dashboard_chart_interval&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;dashboard_leaderboard_rows&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;_links&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;self&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/users/22&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;collection&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/users&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>1.6、修改用户信息
+wpAPI中没有找到该接口，是根据获取用户信息get方法，推理出来，修改用户信息为post，测试部分字段有效，以下请求参数列表，是个人认为会有用到，才罗列出来的。
+请求协议|请求方法：HTTP|POST
+接口路径：/wp-json/wp/v2/users/me
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+请求参数</p>
+<p>参数名	说明	必填	类型
+name	显示名称	是	[string]
+first_name	名字	是	[string]
+last_name	姓氏	是	[string]
+email	邮箱	是	[string]
+locale	语言设置，默认：zh_CN	是	[string]
+nickname	昵称	是	[string]
+roles	如：[ “author” ]	是	[array]
+capabilities	功能分类设置，查看返回结果	是	[string]
+avatar_urls	头像，如：{ “24”:“http://cn.gravatar.com/avatar/cf29dfa8761d26cf525bd3275293a527?s=24&amp;d=mm&amp;r=g”, “48”:“http://cn.gravatar.com/avatar/cf29dfa8761d26cf525bd3275293a527?s=48&amp;d=mm&amp;r=g”, “96”:“http://cn.gravatar.com/avatar/cf29dfa8761d26cf525bd3275293a527?s=96&amp;d=mm&amp;r=g” }。	是	[object]
+woocommerce_meta	店铺的相关配置	是	[string]
+成功示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;id&#34;</span><span class="o">:</span><span class="mi">22</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;username&#34;</span><span class="o">:</span><span class="s2">&#34;1111111&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;测试将name1111111修改ceshi&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;first_name&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;last_name&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;email&#34;</span><span class="o">:</span><span class="s2">&#34;wyp001@123.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;url&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;description&#34;</span><span class="o">:</span><span class="s2">&#34;描述啊描述&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;link&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/author/100022/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;locale&#34;</span><span class="o">:</span><span class="s2">&#34;zh_CN&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;nickname&#34;</span><span class="o">:</span><span class="s2">&#34;1111111&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;slug&#34;</span><span class="o">:</span><span class="s2">&#34;100022&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;roles&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;registered_date&#34;</span><span class="o">:</span><span class="s2">&#34;2020-04-13T07:23:02+00:00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;capabilities&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;upload_files&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;edit_posts&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;edit_published_posts&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;publish_posts&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;read&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;level_2&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;level_1&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;level_0&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;delete_posts&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;delete_published_posts&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author&#34;</span><span class="o">:</span><span class="k">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;extra_capabilities&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author&#34;</span><span class="o">:</span><span class="k">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;avatar_urls&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;24&#34;</span><span class="o">:</span><span class="s2">&#34;http://cn.gravatar.com/avatar/cf29dfa8761d26cf525bd3275293a527?s=24&amp;d=mm&amp;r=g&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;48&#34;</span><span class="o">:</span><span class="s2">&#34;http://cn.gravatar.com/avatar/cf29dfa8761d26cf525bd3275293a527?s=48&amp;d=mm&amp;r=g&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;96&#34;</span><span class="o">:</span><span class="s2">&#34;http://cn.gravatar.com/avatar/cf29dfa8761d26cf525bd3275293a527?s=96&amp;d=mm&amp;r=g&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;meta&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;woocommerce_meta&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;activity_panel_inbox_last_read&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;activity_panel_reviews_last_read&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;categories_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;coupons_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;customers_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;orders_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;products_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;revenue_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;taxes_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;variations_report_columns&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;dashboard_sections&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;dashboard_chart_type&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;dashboard_chart_interval&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;dashboard_leaderboard_rows&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;_links&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;self&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/users/22&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;collection&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/users&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>1.7、获取所有的用户信息
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/users
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+1.8、获取指定用户ID的用户信息
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/users/用户id，如：1
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+2、页面
+2.1、获取所有的页面信息
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/pages
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+2.2、获取指定页面ID的页面信息
+请求协议|请求方法：HTTP|POST
+接口路径：/wp-json/wp/v2/pages/289
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+3、文章的分类和标签
+3.1、获取文章分类数组
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/categories
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+成功示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;id&#34;</span><span class="o">:</span><span class="mi">14</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;count&#34;</span><span class="o">:</span><span class="mi">13</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;description&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;link&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/category/%e5%85%ab%e5%8d%a6%e5%8d%a6%e8%b1%a1/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;八卦卦象&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;slug&#34;</span><span class="o">:</span><span class="s2">&#34;%e5%85%ab%e5%8d%a6%e5%8d%a6%e8%b1%a1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;taxonomy&#34;</span><span class="o">:</span><span class="s2">&#34;category&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;parent&#34;</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;meta&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_links&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;self&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/categories/14&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;collection&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/categories&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;about&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/taxonomies/category&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;wp:post_type&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts?categories=14&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;curies&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;wp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;https://api.w.org/{rel}&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;templated&#34;</span><span class="o">:</span><span class="k">true</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>3.2、获取指定分类ID的分类信息
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/categories/分类id
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+3.3、获取文章的所有标签
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/tags
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+3.4、获取指定标签ID的标签信息
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/tags/标签id
+接口使用状态：正常启用
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+3.5、获取当前wp所有的内容类型
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/types
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+3.6、获取指定内容类型
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/types/(post|page|attachment 三种类型)
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+4、文章
+核心模块</p>
+<p>4.1、获取文章列表
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/posts
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+请求参数：</p>
+<p>参数名	说明	必填	类型
+page	指定要返回的结果的页面	是	[string]
+per_page	返回的记录数，指定为1到100之间的整数	是	[string]
+offset	指定开始检索帖子的任意偏移量.offset = 6将使用每页的默认帖子数，但从集合中的第6个帖子开始	是	[string]
+order	默认降序。order = asc（升序）、order = desc（降序）。	是	[string]
+orderby	控制集合被排序的字段，默认为orderby = date。有效值为“date”，“relevance”，“id”，“include”，“title”和“slug” 有关其他集合支持的值，请参阅REST API参考	是	[string]
+成功示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;id&#34;</span><span class="o">:</span><span class="mi">165</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;date&#34;</span><span class="o">:</span><span class="s2">&#34;2020-03-10T16:06:43&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;date_gmt&#34;</span><span class="o">:</span><span class="s2">&#34;2020-03-10T08:06:43&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;guid&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;rendered&#34;</span><span class="o">:</span><span class="s2">&#34;/?p=165&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;modified&#34;</span><span class="o">:</span><span class="s2">&#34;2020-03-10T16:07:10&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;modified_gmt&#34;</span><span class="o">:</span><span class="s2">&#34;2020-03-10T08:07:10&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;slug&#34;</span><span class="o">:</span><span class="s2">&#34;%e5%85%ad%e7%88%bb%e7%ad%91%e5%9f%ba%e7%ac%ac%e4%b8%80%e5%85%b3-%e5%85%ab%e5%8d%a6%e5%8d%a6%e8%b1%a1%e4%b9%8b%e5%85%91%e5%ae%ab%e5%85%ab%e5%8d%a6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;status&#34;</span><span class="o">:</span><span class="s2">&#34;publish&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="o">:</span><span class="s2">&#34;post&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;link&#34;</span><span class="o">:</span><span class="s2">&#34;/2020/03/10/%e5%85%ad%e7%88%bb%e7%ad%91%e5%9f%ba%e7%ac%ac%e4%b8%80%e5%85%b3-%e5%85%ab%e5%8d%a6%e5%8d%a6%e8%b1%a1%e4%b9%8b%e5%85%91%e5%ae%ab%e5%85%ab%e5%8d%a6/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;title&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;rendered&#34;</span><span class="o">:</span><span class="s2">&#34;六爻筑基第一关——八卦卦象之兑宫八卦&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;content&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;rendered&#34;</span><span class="o">:</span><span class="s2">&#34; &lt;p&gt;&lt;strong&gt;一、&lt;/strong&gt;兑为泽&lt;strong&gt;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">62.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">166</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">62.</span><span class="nx">png</span> <span class="mi">299</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">62</span><span class="o">-</span><span class="mi">150</span><span class="nx">x150</span><span class="o">.</span><span class="nx">png</span> <span class="mi">150</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">299</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">299</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;&lt;/p&gt; &lt;p&gt;1）从卦本身的组合来看：&lt;/p&gt; &lt;p&gt;內外皆是兑，兑为泽，为口，两口相对，意思是在交谈，或者是在争吵，与人交流，可以得益，但说多了又有言过其实之嫌。 2）用六爻的象来看：&lt;/p&gt; &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这个卦，世在六爻，主头部，脸面， 生五爻之金，金主声音，也是在谈论，讲话的意思。从六爻组合的角度来看，此卦，一般不宜女子预测婚姻，虽然官鬼生世，但世在六爻，官鬼在初爻，六爻为天，初爻为地，两人各居一方，分居两地之象。 若是求财， 财旺为佳，可以有大财得， 而且多是凭借三寸不烂之舌，得人钱财， 因为世为财库，财被我把持，兑为泽，为说的意思。若是男的预测婚姻， 财入二爻宅爻，妻虽然入了正位， 但兑为缺，家庭不能美满，会有许多遗憾，常常争吵不断，尤其是怕初爻，二爻同时发动，则妻子多有外遇。 3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有争吵，口舌，欠缺，不完美，破损，喜悦等意思。 二、泽水困　　&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">63.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">167</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">63.</span><span class="nx">png</span> <span class="mi">306</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">63</span><span class="o">-</span><span class="mi">300</span><span class="nx">x286</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">306</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">306</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;1）从卦本身的组合来看：&lt;/p&gt; &lt;p&gt;外卦为兑，为缺，內卦为坎，为水，泽中无水，水漏泽枯，处于困境。所以，名之为困。 2）用六爻的象来看：&lt;/p&gt; &lt;p&gt;世在初爻，初爻为脚，主行走， 财持世，财主饮食，就是得到食物，在路上吃喝东西。但是，此卦六合，合则为留，为绊， 合世者为亥水，是被水所困。 古人说，困者，危也，没有水喝，自然为凶。 这个卦，财爻持世，又是六合卦，六爻预测一般为吉，但世在初爻，爻位比较低，很难发展到高层次。 这个卦，兄弟与二爻相合，多有朋友到家。 3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有被困，阻力，尽头，缓慢，迟滞，无法施展等意思。 三、泽地萃&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">64.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">168</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">64.</span><span class="nx">png</span> <span class="mi">331</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">64</span><span class="o">-</span><span class="mi">300</span><span class="nx">x261</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">331</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">331</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;1）按卦本身的象来看：&lt;/p&gt; &lt;p&gt;外卦为泽，为口，为水，內卦为坤，为地，合起来，就是地面上开口，有坑，水在地上聚成池塘，所以名之为萃。 古人说，萃者，聚也。 2）按六爻分爻来看：&lt;/p&gt; &lt;p&gt;此卦为天地一统，天地合一之象。就是把宇宙大爆炸以后弥散的东西重新再聚到一起。 大家看看此卦的特点，六爻和初爻都是父母未土， 从六爻的爻位上来看，六爻为天，初爻为地，而父母本身也是天地的意思。 所以，六爻的父母未土就是天，初爻的父母未土就是地。大家看，六爻父母未土，从上往下看，是连续相生的， 六爻生五爻， 五爻生四爻， 四爻生三爻，三爻生二爻，二爻生初爻，父母未土又原来的天变成了地， 这就是天地相会， 回到了天地没有分开的宇宙状态。而这个过程必须要经过世爻才能完成。 世爻为一个卦的主体，天地会天下所有的东西都通过各种方式生到了我这里， 就等于自己拥有了天下的东西，众所归一，完全就是聚的意思。六十四卦象，这样的组合，只有这个卦。&amp;nbsp;3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦有汇聚，汇合，归属，集中，同意，和合，完美，收拾，归纳，团结等意思。 四、泽山咸&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">65.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">169</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">65.</span><span class="nx">png</span> <span class="mi">426</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">65</span><span class="o">-</span><span class="mi">300</span><span class="nx">x211</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">426</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">426</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;1）从卦本身的组合来看：&lt;/p&gt; &lt;p&gt;上卦为兑，为少女，下卦为艮，为少男， 阳下为刚，性向上， 兑上为阴，为柔，性向下， 阴阳正配，虽然在內外，但心通一处，为感应而通，所谓心有灵犀一点通， 古人说，咸者，感也，就是这个意思。&lt;/p&gt; &lt;p&gt;2）用六爻的象来看：&lt;/p&gt; &lt;p&gt;世在三爻，三爻为门，立足于通道，进出口。六爻为天，父母为信息，初爻为地，临父母也为信息， 天地信息都生我，就是与天地相通，可以感应到宇宙的所有信息。&lt;/p&gt; &lt;p&gt;3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有感应，感觉，体会，理解，沟通，联系等意思。 若求财，男子预测，财旺则喜应动生世，因为应为财库，就是别人挣到钱，积攒起来拿到我这里来。 若是预测婚姻， 则不可， 男多找二婚，或是不是处女，或是女朋友到别人怀抱里去了。女的预测男朋友，不是有外遇，就是对方为有老婆的人。&lt;/p&gt; &lt;p&gt;五、水山蹇&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">66.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">170</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">66.</span><span class="nx">png</span> <span class="mi">406</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">300</span><span class="nx">x219</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">406</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">406</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;上为坎，为水，为凶险，下为艮，为山，水流上山，艰难之象。 故古人说，蹇者，难也，&lt;/p&gt; &lt;p&gt;2）按六爻卦的象来看：&amp;nbsp;&amp;nbsp;&amp;nbsp;子水在六爻，世上申金欲生顶上之水， 而五爻为路，有土来克，也是水想往上流而艰难之象。&lt;/p&gt; &lt;p&gt;3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有艰难，危险，闭塞，不通，郁结，阻挠等意思。若是预测婚姻，男女都不吉。男测，财伏官下，妻被他人所夺，兄弟持世，世应之间又有兄弟阻隔，多有不顺， 女测，官来克世，也是不和之象，不过，喜五爻动而生世，五爻动，多是父母主事成婚， 男测，戌动合财生世， 女测，使鬼入墓而生世，五爻为家长，所以有此象。 预测事业，官运， 喜官鬼午火和戌土同动，则为多得领导提拔，官职可升，鬼独发，则凶。测灾有灾， 测官，他人得，而自己不得。六、地山谦：&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">67.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">171</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">67.</span><span class="nx">png</span> <span class="mi">396</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">67</span><span class="o">-</span><span class="mi">300</span><span class="nx">x151</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">396</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">396</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;1）从卦本身的组合来看： &lt;/p&gt; &lt;p&gt;外卦为坤，为大地，內卦为艮，为山，为高地，平地在上，高地在下，高让于低， 故名之为谦。 谦者，退也，退让之象。&lt;/p&gt; &lt;p&gt;2）用六爻的象来看： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;世在五爻是尊位， 自己在高处，显要的地方， 而应在二爻低处， 子孙为克官之神，自己不想要官，欲退出官位，官临应爻，让位于别人。 不过这个卦里暗藏有玄机， 要根据其他变化组合而看 五爻临尊位，克应上官鬼， 谦让有时是假， 欲夺他人之位是真， 乃是以退为进。 3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有退让，以守为攻，谦虚，退缩，下降，返回等意思。&lt;/p&gt; &lt;p&gt;七、雷山小过&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">68.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">172</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">68.</span><span class="nx">png</span> <span class="mi">449</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">68</span><span class="o">-</span><span class="mi">300</span><span class="nx">x138</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">449</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">449</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;1）从卦本身的组合来看： &amp;nbsp;&amp;nbsp;&amp;nbsp;外卦为震，震为动，为怒，內卦为艮，为止， 发怒而有度，能适可而止，做事没有过头， 虽有小错而功大于过， 所以说小过者，过也。2）用六爻的象来看： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;官鬼持世， 以克五爻尊位，下逆上，为错误，好在世生应爻，又可以以德待人，先兵而后礼。此卦用来判断事业，对领导有不满情绪，对自己的部下则有宽容的一面，两兄弟夹世，容易被人攻击，被孤立起来。男测婚姻，多被人夺爱，对方有外心，女测婚姻，夫妻不和，自己出现情人。&lt;/p&gt; &lt;p&gt;&amp;nbsp;3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有求人，求助，帮忙，提问，修养，保护，自力更生，自我发展，白手起家等意思。这个卦包含有错误，失误，不足，欠缺，不完美等意思。 八、雷泽归妹&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">69.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">173</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">69.</span><span class="nx">png</span> <span class="mi">428</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">69</span><span class="o">-</span><span class="mi">300</span><span class="nx">x142</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">428</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">428</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;1）从卦本身来看：&lt;/p&gt; &lt;p&gt;外卦为震，为长男， 內卦为泽，为少女，长少不当而相配，少女在內，而外配长男， 出嫁之象， 因不配而少女居內，少女回家，所以谓之归妹。&lt;/p&gt; &lt;p&gt;2）用六爻的象来看：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;世应比和都是土，为兄妹之象。 以十二地支排列， 丑先而大，戌后而小， 戌临阴爻为女，所以戌为丑之妹。 此卦官入墓于应，财又合应，财官皆归他人，所以为归妹。这个卦财在二爻为家中之财，自己之财， 合应，多为财被他人所得， 或者拿上自己的钱给予别人。不喜财动，也不喜应动。&lt;/p&gt; &lt;p&gt;&amp;nbsp;3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有归属，送给，外传，失去，流失，淘汰等意思。 &amp;nbsp;&lt;/p&gt; &#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;protected&#34;</span><span class="o">:</span><span class="k">false</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;excerpt&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;rendered&#34;</span><span class="o">:</span><span class="s2">&#34;&lt;p&gt;一、兑为泽 1、[卦象] 1）从卦本身的组合来看： 內外皆是兑，兑为泽，为口，两口相对，意思是在交谈，或者是在 [&amp;hellip;]&lt;/p&gt; &#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;protected&#34;</span><span class="o">:</span><span class="k">false</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author&#34;</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;featured_media&#34;</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;comment_status&#34;</span><span class="o">:</span><span class="s2">&#34;open&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;ping_status&#34;</span><span class="o">:</span><span class="s2">&#34;open&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;sticky&#34;</span><span class="o">:</span><span class="k">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;template&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;format&#34;</span><span class="o">:</span><span class="s2">&#34;standard&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;meta&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;_links_to&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;_links_to_target&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;categories&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="mi">14</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;tags&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_links&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;self&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts/165&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;collection&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;about&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/types/post&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;author&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/users/1&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;replies&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/comments?post=165&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;version-history&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;count&#34;</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts/165/revisions&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;wp:attachment&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/media?parent=165&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;wp:term&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;taxonomy&#34;</span><span class="o">:</span><span class="s2">&#34;category&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/categories?post=165&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">},</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;taxonomy&#34;</span><span class="o">:</span><span class="s2">&#34;post_tag&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/tags?post=165&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;curies&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;wp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;https://api.w.org/{rel}&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;templated&#34;</span><span class="o">:</span><span class="k">true</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>4.2、获取文章详情
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/posts/文章id
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+请求参数</p>
+<p>参数名	说明	必填	类型	值可能性
+context	上下文参数控制数据返回的格式	否	[string]	view:默认上下文，输出普通的用户内容。edit:更新文章时用来添加附加字段，包括 title_raw, content_raw, guid_raw 和自定义字段, 以适应文章编辑。parent:上下文在嵌入另一个（如文章作者）的返回时使用。这样做是为了使用用户数据的最小子集来减少响应大小。返回父字段作为一个 ID，而不是一个嵌入的文章，以确保我们不会遍历后面的整个层次结构。
+成功示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;id&#34;</span><span class="o">:</span><span class="mi">165</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;date&#34;</span><span class="o">:</span><span class="s2">&#34;2020-03-10T16:06:43&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;date_gmt&#34;</span><span class="o">:</span><span class="s2">&#34;2020-03-10T08:06:43&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;guid&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;rendered&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/?p=165&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;modified&#34;</span><span class="o">:</span><span class="s2">&#34;2020-03-10T16:07:10&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;modified_gmt&#34;</span><span class="o">:</span><span class="s2">&#34;2020-03-10T08:07:10&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;slug&#34;</span><span class="o">:</span><span class="s2">&#34;%e5%85%ad%e7%88%bb%e7%ad%91%e5%9f%ba%e7%ac%ac%e4%b8%80%e5%85%b3-%e5%85%ab%e5%8d%a6%e5%8d%a6%e8%b1%a1%e4%b9%8b%e5%85%91%e5%ae%ab%e5%85%ab%e5%8d%a6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;status&#34;</span><span class="o">:</span><span class="s2">&#34;publish&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;type&#34;</span><span class="o">:</span><span class="s2">&#34;post&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;link&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/2020/03/10/%e5%85%ad%e7%88%bb%e7%ad%91%e5%9f%ba%e7%ac%ac%e4%b8%80%e5%85%b3-%e5%85%ab%e5%8d%a6%e5%8d%a6%e8%b1%a1%e4%b9%8b%e5%85%91%e5%ae%ab%e5%85%ab%e5%8d%a6/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;title&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;rendered&#34;</span><span class="o">:</span><span class="s2">&#34;六爻筑基第一关——八卦卦象之兑宫八卦&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;content&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;rendered&#34;</span><span class="o">:</span><span class="s2">&#34; &lt;p&gt;&lt;strong&gt;一、&lt;/strong&gt;兑为泽&lt;strong&gt;&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">62.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">166</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">62.</span><span class="nx">png</span> <span class="mi">299</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">62</span><span class="o">-</span><span class="mi">150</span><span class="nx">x150</span><span class="o">.</span><span class="nx">png</span> <span class="mi">150</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">299</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">299</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;&lt;/p&gt; &lt;p&gt;1）从卦本身的组合来看：&lt;/p&gt; &lt;p&gt;內外皆是兑，兑为泽，为口，两口相对，意思是在交谈，或者是在争吵，与人交流，可以得益，但说多了又有言过其实之嫌。 2）用六爻的象来看：&lt;/p&gt; &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这个卦，世在六爻，主头部，脸面， 生五爻之金，金主声音，也是在谈论，讲话的意思。从六爻组合的角度来看，此卦，一般不宜女子预测婚姻，虽然官鬼生世，但世在六爻，官鬼在初爻，六爻为天，初爻为地，两人各居一方，分居两地之象。 若是求财， 财旺为佳，可以有大财得， 而且多是凭借三寸不烂之舌，得人钱财， 因为世为财库，财被我把持，兑为泽，为说的意思。若是男的预测婚姻， 财入二爻宅爻，妻虽然入了正位， 但兑为缺，家庭不能美满，会有许多遗憾，常常争吵不断，尤其是怕初爻，二爻同时发动，则妻子多有外遇。 3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有争吵，口舌，欠缺，不完美，破损，喜悦等意思。 二、泽水困　　&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">63.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">167</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">63.</span><span class="nx">png</span> <span class="mi">306</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">63</span><span class="o">-</span><span class="mi">300</span><span class="nx">x286</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">306</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">306</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;1）从卦本身的组合来看：&lt;/p&gt; &lt;p&gt;外卦为兑，为缺，內卦为坎，为水，泽中无水，水漏泽枯，处于困境。所以，名之为困。 2）用六爻的象来看：&lt;/p&gt; &lt;p&gt;世在初爻，初爻为脚，主行走， 财持世，财主饮食，就是得到食物，在路上吃喝东西。但是，此卦六合，合则为留，为绊， 合世者为亥水，是被水所困。 古人说，困者，危也，没有水喝，自然为凶。 这个卦，财爻持世，又是六合卦，六爻预测一般为吉，但世在初爻，爻位比较低，很难发展到高层次。 这个卦，兄弟与二爻相合，多有朋友到家。 3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有被困，阻力，尽头，缓慢，迟滞，无法施展等意思。 三、泽地萃&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">64.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">168</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">64.</span><span class="nx">png</span> <span class="mi">331</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">64</span><span class="o">-</span><span class="mi">300</span><span class="nx">x261</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">331</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">331</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;1）按卦本身的象来看：&lt;/p&gt; &lt;p&gt;外卦为泽，为口，为水，內卦为坤，为地，合起来，就是地面上开口，有坑，水在地上聚成池塘，所以名之为萃。 古人说，萃者，聚也。 2）按六爻分爻来看：&lt;/p&gt; &lt;p&gt;此卦为天地一统，天地合一之象。就是把宇宙大爆炸以后弥散的东西重新再聚到一起。 大家看看此卦的特点，六爻和初爻都是父母未土， 从六爻的爻位上来看，六爻为天，初爻为地，而父母本身也是天地的意思。 所以，六爻的父母未土就是天，初爻的父母未土就是地。大家看，六爻父母未土，从上往下看，是连续相生的， 六爻生五爻， 五爻生四爻， 四爻生三爻，三爻生二爻，二爻生初爻，父母未土又原来的天变成了地， 这就是天地相会， 回到了天地没有分开的宇宙状态。而这个过程必须要经过世爻才能完成。 世爻为一个卦的主体，天地会天下所有的东西都通过各种方式生到了我这里， 就等于自己拥有了天下的东西，众所归一，完全就是聚的意思。六十四卦象，这样的组合，只有这个卦。&amp;nbsp;3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦有汇聚，汇合，归属，集中，同意，和合，完美，收拾，归纳，团结等意思。 四、泽山咸&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">65.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">169</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">65.</span><span class="nx">png</span> <span class="mi">426</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">65</span><span class="o">-</span><span class="mi">300</span><span class="nx">x211</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">426</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">426</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;1）从卦本身的组合来看：&lt;/p&gt; &lt;p&gt;上卦为兑，为少女，下卦为艮，为少男， 阳下为刚，性向上， 兑上为阴，为柔，性向下， 阴阳正配，虽然在內外，但心通一处，为感应而通，所谓心有灵犀一点通， 古人说，咸者，感也，就是这个意思。&lt;/p&gt; &lt;p&gt;2）用六爻的象来看：&lt;/p&gt; &lt;p&gt;世在三爻，三爻为门，立足于通道，进出口。六爻为天，父母为信息，初爻为地，临父母也为信息， 天地信息都生我，就是与天地相通，可以感应到宇宙的所有信息。&lt;/p&gt; &lt;p&gt;3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有感应，感觉，体会，理解，沟通，联系等意思。 若求财，男子预测，财旺则喜应动生世，因为应为财库，就是别人挣到钱，积攒起来拿到我这里来。 若是预测婚姻， 则不可， 男多找二婚，或是不是处女，或是女朋友到别人怀抱里去了。女的预测男朋友，不是有外遇，就是对方为有老婆的人。&lt;/p&gt; &lt;p&gt;五、水山蹇&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">66.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">170</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">66.</span><span class="nx">png</span> <span class="mi">406</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">66</span><span class="o">-</span><span class="mi">300</span><span class="nx">x219</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">406</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">406</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;上为坎，为水，为凶险，下为艮，为山，水流上山，艰难之象。 故古人说，蹇者，难也，&lt;/p&gt; &lt;p&gt;2）按六爻卦的象来看：&amp;nbsp;&amp;nbsp;&amp;nbsp;子水在六爻，世上申金欲生顶上之水， 而五爻为路，有土来克，也是水想往上流而艰难之象。&lt;/p&gt; &lt;p&gt;3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有艰难，危险，闭塞，不通，郁结，阻挠等意思。若是预测婚姻，男女都不吉。男测，财伏官下，妻被他人所夺，兄弟持世，世应之间又有兄弟阻隔，多有不顺， 女测，官来克世，也是不和之象，不过，喜五爻动而生世，五爻动，多是父母主事成婚， 男测，戌动合财生世， 女测，使鬼入墓而生世，五爻为家长，所以有此象。 预测事业，官运， 喜官鬼午火和戌土同动，则为多得领导提拔，官职可升，鬼独发，则凶。测灾有灾， 测官，他人得，而自己不得。六、地山谦：&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">67.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">171</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">67.</span><span class="nx">png</span> <span class="mi">396</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">67</span><span class="o">-</span><span class="mi">300</span><span class="nx">x151</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">396</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">396</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;1）从卦本身的组合来看： &lt;/p&gt; &lt;p&gt;外卦为坤，为大地，內卦为艮，为山，为高地，平地在上，高地在下，高让于低， 故名之为谦。 谦者，退也，退让之象。&lt;/p&gt; &lt;p&gt;2）用六爻的象来看： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;世在五爻是尊位， 自己在高处，显要的地方， 而应在二爻低处， 子孙为克官之神，自己不想要官，欲退出官位，官临应爻，让位于别人。 不过这个卦里暗藏有玄机， 要根据其他变化组合而看 五爻临尊位，克应上官鬼， 谦让有时是假， 欲夺他人之位是真， 乃是以退为进。 3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有退让，以守为攻，谦虚，退缩，下降，返回等意思。&lt;/p&gt; &lt;p&gt;七、雷山小过&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">68.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">172</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">68.</span><span class="nx">png</span> <span class="mi">449</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">68</span><span class="o">-</span><span class="mi">300</span><span class="nx">x138</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">449</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">449</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;1）从卦本身的组合来看： &amp;nbsp;&amp;nbsp;&amp;nbsp;外卦为震，震为动，为怒，內卦为艮，为止， 发怒而有度，能适可而止，做事没有过头， 虽有小错而功大于过， 所以说小过者，过也。2）用六爻的象来看： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;官鬼持世， 以克五爻尊位，下逆上，为错误，好在世生应爻，又可以以德待人，先兵而后礼。此卦用来判断事业，对领导有不满情绪，对自己的部下则有宽容的一面，两兄弟夹世，容易被人攻击，被孤立起来。男测婚姻，多被人夺爱，对方有外心，女测婚姻，夫妻不和，自己出现情人。&lt;/p&gt; &lt;p&gt;&amp;nbsp;3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有求人，求助，帮忙，提问，修养，保护，自力更生，自我发展，白手起家等意思。这个卦包含有错误，失误，不足，欠缺，不完美等意思。 八、雷泽归妹&lt;/p&gt; &lt;p&gt;&lt;strong&gt;1、[卦象]&lt;/strong&gt;&lt;/p&gt; &lt;figure class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">block</span><span class="o">-</span><span class="nx">image</span> <span class="nx">size</span><span class="o">-</span><span class="nx">large</span><span class="s2">&#34;&gt;&lt;img src=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">69.</span><span class="nx">png</span><span class="s2">&#34; alt=&#34;&#34; class=&#34;</span><span class="nx">wp</span><span class="o">-</span><span class="nx">image</span><span class="o">-</span><span class="mi">173</span><span class="s2">&#34; srcset=&#34;</span><span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mf">69.</span><span class="nx">png</span> <span class="mi">428</span><span class="nx">w</span><span class="p">,</span> <span class="nx">http</span><span class="o">://</span><span class="nx">josejang</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">wp</span><span class="o">-</span><span class="nx">content</span><span class="o">/</span><span class="nx">uploads</span><span class="o">/</span><span class="mi">2020</span><span class="o">/</span><span class="mo">03</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="mi">69</span><span class="o">-</span><span class="mi">300</span><span class="nx">x142</span><span class="o">.</span><span class="nx">png</span> <span class="mi">300</span><span class="nx">w</span><span class="s2">&#34; sizes=&#34;</span><span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">428</span><span class="nx">px</span><span class="p">)</span> <span class="mi">100</span><span class="nx">vw</span><span class="p">,</span> <span class="mi">428</span><span class="nx">px</span><span class="s2">&#34; /&gt;&lt;/figure&gt; &lt;p&gt;1）从卦本身来看：&lt;/p&gt; &lt;p&gt;外卦为震，为长男， 內卦为泽，为少女，长少不当而相配，少女在內，而外配长男， 出嫁之象， 因不配而少女居內，少女回家，所以谓之归妹。&lt;/p&gt; &lt;p&gt;2）用六爻的象来看：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;世应比和都是土，为兄妹之象。 以十二地支排列， 丑先而大，戌后而小， 戌临阴爻为女，所以戌为丑之妹。 此卦官入墓于应，财又合应，财官皆归他人，所以为归妹。这个卦财在二爻为家中之财，自己之财， 合应，多为财被他人所得， 或者拿上自己的钱给予别人。不喜财动，也不喜应动。&lt;/p&gt; &lt;p&gt;&amp;nbsp;3）卦象含义：&lt;/p&gt; &lt;p&gt;这个卦包含有归属，送给，外传，失去，流失，淘汰等意思。 &amp;nbsp;&lt;/p&gt; &#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;protected&#34;</span><span class="o">:</span><span class="k">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;excerpt&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;rendered&#34;</span><span class="o">:</span><span class="s2">&#34;&lt;p&gt;一、兑为泽 1、[卦象] 1）从卦本身的组合来看： 內外皆是兑，兑为泽，为口，两口相对，意思是在交谈，或者是在 [&amp;hellip;]&lt;/p&gt; &#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;protected&#34;</span><span class="o">:</span><span class="k">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;author&#34;</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;featured_media&#34;</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;comment_status&#34;</span><span class="o">:</span><span class="s2">&#34;open&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;ping_status&#34;</span><span class="o">:</span><span class="s2">&#34;open&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;sticky&#34;</span><span class="o">:</span><span class="k">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;template&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;format&#34;</span><span class="o">:</span><span class="s2">&#34;standard&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;meta&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_links_to&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_links_to_target&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;categories&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">14</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;tags&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;_links&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;self&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts/165&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;collection&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;about&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/types/post&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/users/1&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;replies&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/comments?post=165&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;version-history&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;count&#34;</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts/165/revisions&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;wp:attachment&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/media?parent=165&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;wp:term&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;taxonomy&#34;</span><span class="o">:</span><span class="s2">&#34;category&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/categories?post=165&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;taxonomy&#34;</span><span class="o">:</span><span class="s2">&#34;post_tag&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/tags?post=165&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;curies&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;wp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;https://api.w.org/{rel}&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;templated&#34;</span><span class="o">:</span><span class="k">true</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>4.3、创建一篇文章
+请求协议|请求方法：HTTP|POST
+接口路径：/wp-json/wp/v2/posts
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+请求参数</p>
+<p>参数名	说明	必填	类型	值可能性
+title	文章标题	是	[string]
+content	文章内容	是	[string]
+excerpt_raw	文章摘要	否	[string]
+status	文章状态，默认为draft. (string) optional	否	[string]	draft:草稿,publish:发表,pending:待定, future:未来, private:私有
+categories	文章标题分类，传分类id	否	[string]
+comment_status	文章的评论状态，默认为设置选项 ‘default_comment_status’的值, 或 ‘closed’. (string) optional	否	[string]	open:打开,closed:关闭
+ping_status	文章的ping状态。用来确定用户是否可以提交pibgbacks和trackbacks，默认为设置选项 ‘default_ping_status’的值. (string) optional	否	[string]	open:打开,closed:关闭
+sticky	文章的置顶状态。默认为 false. (boolean) optional	否	[string]	true:置顶,false:不置顶
+author	文章的作者，作者可以为作者ID或作者对象，默认为当前作者。(object	string) optional	否	[string]
+name	文章别名	否	[string]
+password	用来保护文章的密码，默认为空字符串 (string) optional	否	[string]
+type	文章类型，可以是: post, page, link, nav_menu_item, 或其他自定义文章类型. 默认为post. (string) optional	否	[string]
+post_parent	父级文章的ID，默认为0. (integer) optional	否	[string]
+post_format	文章格式，默认为standard. (string) optional	否	[string]
+menu_order	页面的顺序序号，默认为0 (integer) optional	否	[string]
+post_meta	文章的元数据，文章元数据应该是一个或多个元数据对象的数组，查看使用端点键值对创建文章元数据章节。 (array) optional	否	[string]
+date	发布文章的本地日期和时间. 日期应该是一个 RFC3339 时间戳(<a href="http://tools.ietf.org/html/rfc3339%29">http://tools.ietf.org/html/rfc3339)</a>. 例如: 2014-01-01T12:20:52Z. 默认为本地日期和时间. (string) optional	否	[string]
+date_gmt	文章发布的UTC日期和时间，日期应该为一个 RFC3339 时间戳. 例如: 201401-01T12:20:52Z. 默认为当前的 GMT 日期和时间. (string) optional	否	[string]
+成功示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="mi">591</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;date&#34;</span><span class="o">:</span> <span class="s2">&#34;2020-04-14T10:33:02&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;date_gmt&#34;</span><span class="o">:</span> <span class="s2">&#34;2020-04-14T02:33:02&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;guid&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;rendered&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/?p=591&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;raw&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/?p=591&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;modified&#34;</span><span class="o">:</span> <span class="s2">&#34;2020-04-14T10:33:02&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;modified_gmt&#34;</span><span class="o">:</span> <span class="s2">&#34;2020-04-14T02:33:02&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;password&#34;</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;slug&#34;</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;status&#34;</span><span class="o">:</span> <span class="s2">&#34;draft&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;post&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;link&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/?p=591&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;title&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;raw&#34;</span><span class="o">:</span> <span class="s2">&#34;1212&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;rendered&#34;</span><span class="o">:</span> <span class="s2">&#34;1212&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;content&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;raw&#34;</span><span class="o">:</span> <span class="s2">&#34;1212&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;rendered&#34;</span><span class="o">:</span> <span class="s2">&#34;&lt;p&gt;1212&lt;/p&gt;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;protected&#34;</span><span class="o">:</span> <span class="k">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;block_version&#34;</span><span class="o">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;excerpt&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;raw&#34;</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;rendered&#34;</span><span class="o">:</span> <span class="s2">&#34;&lt;p&gt;1212&lt;/p&gt;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;protected&#34;</span><span class="o">:</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;author&#34;</span><span class="o">:</span> <span class="mi">22</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;featured_media&#34;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;comment_status&#34;</span><span class="o">:</span> <span class="s2">&#34;open&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;ping_status&#34;</span><span class="o">:</span> <span class="s2">&#34;open&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;sticky&#34;</span><span class="o">:</span> <span class="k">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;template&#34;</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;format&#34;</span><span class="o">:</span> <span class="s2">&#34;standard&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;meta&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_links_to&#34;</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_links_to_target&#34;</span><span class="o">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;categories&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">14</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;tags&#34;</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;permalink_template&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/2020/04/14/%postname%/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;generated_slug&#34;</span><span class="o">:</span> <span class="s2">&#34;1212-2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;_links&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;self&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts/591&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;collection&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;about&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/types/post&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span> <span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/users/22&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;replies&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span> <span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/comments?post=591&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;version-history&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;count&#34;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts/591/revisions&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;wp:attachment&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/media?parent=591&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;wp:term&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;taxonomy&#34;</span><span class="o">:</span> <span class="s2">&#34;category&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span> <span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/categories?post=591&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;taxonomy&#34;</span><span class="o">:</span> <span class="s2">&#34;post_tag&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span> <span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/tags?post=591&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;wp:action-publish&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts/591&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;wp:action-assign-categories&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts/591&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;wp:action-create-tags&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts/591&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;wp:action-assign-tags&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts/591&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;curies&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;wp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;href&#34;</span><span class="o">:</span> <span class="s2">&#34;https://api.w.org/{rel}&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;templated&#34;</span><span class="o">:</span> <span class="k">true</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>4.4、编辑文章
+请求协议|请求方法：HTTP|PUT
+接口路径：/wp-json/wp/v2/posts/文章id
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+请求参数</p>
+<p>参数名	说明	必填	类型
+备注	所有参数同创建文章	否	[string]
+4.5、删除文章
+请求协议|请求方法：HTTP|DELETE
+接口路径：/wp-json/wp/v2/posts/文章id
+接口使用状态：正常启用
+请求头部：
+| 头部标签 | 必填 | 头部内容 |
+| :&mdash;&mdash;&mdash;&mdash; | :&mdash;&mdash;&mdash;&mdash; |
+|Authorization|是|Bearer+token|</p>
+<p>请求参数</p>
+<p>参数名	说明	必填	类型	值可能性	限制	示例
+force		是	[string]	false:指定文章被移动到回收站，默认,true:文章将被永久删除	
+4.6、文章点赞 *
+请求协议|请求方法：HTTP|POST
+接口路径：/fapi/setpostlike.php
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+请求参数</p>
+<p>参数名	说明	必填	类型
+postid	文章id	是	[string]
+4.7、获取文章版本
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/posts/文章id/revisions
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+成功示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">返回一个</span> <span class="mi">200</span> <span class="nx">OK</span> <span class="nx">状态码和指定文章的版本</span>
+</span></span></code></pre></div><p>4.8、付费文章列表 *
+请求协议|请求方法：HTTP|GET
+接口路径：/fapi/getproductlist.php
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+请求参数</p>
+<p>参数名	说明	必填	类型
+numberposts	1	是	[string]
+post_type	product	是	[string]
+pagenum		是	[string]
+5、文章评论
+5.1、获取某文章所有的评论
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/comments
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+请求参数：</p>
+<p>参数名	说明	必填	类型
+post	文章ID	是	[string]
+parent	父级评论id，0表示父级。添加该字段则获取文章的所有一级评论	否	[string]
+成功示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;id&#34;</span><span class="o">:</span><span class="mi">8</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;post&#34;</span><span class="o">:</span><span class="mi">601</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;parent&#34;</span><span class="o">:</span><span class="mi">7</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author&#34;</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author_name&#34;</span><span class="o">:</span><span class="s2">&#34;admin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author_url&#34;</span><span class="o">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;date&#34;</span><span class="o">:</span><span class="s2">&#34;2020-04-15T09:33:14&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;date_gmt&#34;</span><span class="o">:</span><span class="s2">&#34;2020-04-15T01:33:14&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;content&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;rendered&#34;</span><span class="o">:</span><span class="s2">&#34;&lt;p&gt;不错不错&lt;/p&gt; &#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;link&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/2020/04/14/%e6%b7%bb%e5%8a%a0%e5%88%b0%e5%a1%94%e7%bd%97%e7%89%8c%e5%88%86%e7%b1%bb/#comment-8&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;status&#34;</span><span class="o">:</span><span class="s2">&#34;approved&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="o">:</span><span class="s2">&#34;comment&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;author_avatar_urls&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;24&#34;</span><span class="o">:</span><span class="s2">&#34;http://cn.gravatar.com/avatar/d87e1904bcb5bd85ad6882da2b2d9165?s=24&amp;d=mm&amp;r=g&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;48&#34;</span><span class="o">:</span><span class="s2">&#34;http://cn.gravatar.com/avatar/d87e1904bcb5bd85ad6882da2b2d9165?s=24&amp;d=mm&amp;r=g&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;96&#34;</span><span class="o">:</span><span class="s2">&#34;http://cn.gravatar.com/avatar/d87e1904bcb5bd85ad6882da2b2d9165?s=24&amp;d=mm&amp;r=g&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;meta&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_links&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;self&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/comments/8&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;collection&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/comments&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;author&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/users/1&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;up&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;post_type&#34;</span><span class="o">:</span><span class="s2">&#34;post&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/posts/601&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;in-reply-to&#34;</span><span class="o">:</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;embeddable&#34;</span><span class="o">:</span><span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;href&#34;</span><span class="o">:</span><span class="s2">&#34;http://josejang.com/wp-json/wp/v2/comments/7&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>5.2、获取指定评论详情
+请求协议|请求方法：HTTP|POST
+接口路径：/wp-json/wp/v2/comments/评论id
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+5.3、创建一条文章评论
+注： 我记得测试这个接口的时候，一直提示权限有问题。后来因为其他事情没有继续往下处理了。哪位大神要是看到这里，帮测试一下，移动端是否可以创建评论。
+请求协议|请求方法：HTTP|POST
+接口路径：/wp-json/wp/v2/comments
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+请求参数
+参数类型：表单</p>
+<p>参数名	说明	必填	类型
+post	文章id	是	[string]
+content	评论内容	是	[string]
+parent	评论所属父评论id，默认为0，即一级评论	是	[string]
+author_name	评论者的名称	是	[string]
+author_email	评论者邮箱	是	[string]
+author_url	评论者url地址	是	[string]
+6、媒体文件
+6.1、获取所有的媒体信息
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/media
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+6.2、获取指定媒体ID的媒体信息
+请求协议|请求方法：HTTP|GET
+接口路径：/wp-json/wp/v2/media/媒体ID
+请求头部：</p>
+<p>头部标签	必填	头部内容
+Authorization	是	Bearer+token
+7、总结
+通过接口的测试和了解，wp的主要功能包括：用户的登录注册、获取文章分类、获取文章详情、新增｜修改｜删除文章、评论文章、点赞文章和评论。
+那么可以实现移动端资讯类app的基本应用。如果个人｜团队想构建一个比较简单的资讯类项目的话，应用wp框架是一个比较不错的选择。
+说到iOS端创建文章的话，那就必须要用到富文本编辑器了。于是我就顺便了解了下iOS端富文本编辑器框架，发现这一类的却不多，个人感觉来说，比较好用的，bug比较少的就一个：WGEditor-mobile，谁有比较好的富文本编辑器框架的童鞋，欢迎留言！</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="mailto:josejangoo@gmail.com?subject=Hello&amp;body=Hi%20Jose" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/jos%c3%a9-jang-2218813a3" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="/index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2026 José Jang.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="回到顶部" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>José&#39;s Blog</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 10 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我如何用 AI 半自动维护一个网站（完整流程）</title>
+      <link>http://localhost:1313/posts/ai/ai-semi-automatic-site-maintenance/</link>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/ai-semi-automatic-site-maintenance/</guid>
+      
+      <description>记录我如何用 AI 构建一套“半自动而非全自动”的网站维护流程，覆盖内容生产、结构、SEO、内链与判断边界，避免 AI 失控。</description>
+      
+    </item>
+    
+    <item>
+      <title>WordPress 清理编辑器遗留痕迹</title>
+      <link>http://localhost:1313/posts/about-work/wordpress-clean-editor-artifacts/</link>
+      <pubDate>Sun, 04 Jan 2026 14:43:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wordpress-clean-editor-artifacts/</guid>
+      
+      <description>分析 Notion / AI 编辑器复制粘贴到 WordPress 后产生的 data-start、data-end 等无意义属性问题，并给出安全、可控的清理方案。</description>
+      
+    </item>
+    
+    <item>
+      <title>帝国 CMS v8 原生 Sitemap.xml 生成方案（无需插件）</title>
+      <link>http://localhost:1313/posts/about-work/empirecms-v8-native-sitemap-generator/</link>
+      <pubDate>Sat, 03 Jan 2026 20:35:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/empirecms-v8-native-sitemap-generator/</guid>
+      
+      <description>提供一套帝国 CMS v8 原生 Sitemap.xml 生成方案，通过 PHP 脚本生成 sitemap index 与子 sitemap，无需依赖任何插件，稳定可控。</description>
+      
+    </item>
+    
+    <item>
+      <title>如何本地部署 DeepSeek？</title>
+      <link>http://localhost:1313/posts/ai/deploy-deepseek-locally/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/deploy-deepseek-locally/</guid>
+      
+      <description>DeepSeek 最近非常火，本文用最短时间演示如何在本地通过 Ollama 部署 DeepSeek 模型，包含下载安装到模型选择的完整流程。</description>
+      
+    </item>
+    
+    <item>
+      <title>如何去背？Python rembg 实现 AI 自动去背景的完整教程</title>
+      <link>http://localhost:1313/posts/ai/python-rembg-remove-background/</link>
+      <pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/python-rembg-remove-background/</guid>
+      
+      <description>基于 rembg（U-2-Net）的 Python 自动去背景完整示例，支持批量处理 PNG/JPG/WebP，适合本地或服务器使用。</description>
+      
+    </item>
+    
+    <item>
+      <title>一定要会的英语短句600句合集✅ 3小时沉浸式英语听力练习🔥（常速➜较慢速➜常速➜中文）每天一遍，学会用最精简字句，说出流利的地道英文！ 【生活英文口语迷你短句】睡觉学英语</title>
+      <link>http://localhost:1313/posts/english/600-english-short-sentences/</link>
+      <pubDate>Thu, 29 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/english/600-english-short-sentences/</guid>
+      
+      <description>&lt;h2 id=&#34;睡觉学英语边睡边记-英文沉浸式英语听力练习刻意练习英语听力睡眠学英文英语口语生活口语基础英语会话英语初学者英语学习零基础学英文英语发音英文发音学习英语发音英文短句英语听力美式口音英语词汇美式英语英语初级听力英文useful-english-phraseseveryday-uselearn-englishdaily-conversations英文短句练习english-listeningenglish-listening-practice听懂每一句生活情境英语生活英语短句英语问答一天生活英文学英文基础英语会话英文情境对话英语对答英文对答生活万用英语道地美语地道英语&#34;&gt;睡觉学英语｜边睡边记 英文｜沉浸式英语听力练习｜刻意练习英语听力｜睡眠学英文｜英语口语｜生活口语｜基础英语会话｜英语初学者｜英语学习｜零基础学英文｜英语发音｜英文发音｜学习英语发音｜英文短句｜英语听力｜美式口音｜英语词汇｜美式英语｜英语初级听力｜英文｜Useful English phrases｜Everyday use｜Learn English｜Daily conversations｜英文短句练习｜English listening｜English Listening Practice｜听懂每一句｜生活情境英语｜生活英语短句｜英语问答｜一天生活英文｜学英文｜基础英语会话｜英文情境对话｜英语对答｜英文对答｜生活万用英语｜道地美语｜地道英语&lt;/h2&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>受够了帝国CMS后台模板编辑界面，给它加个代码样式让他看起来不再是一大坨</title>
+      <link>http://localhost:1313/posts/about-work/empirecms-template-editor-codemirror/</link>
+      <pubDate>Sun, 06 Apr 2025 16:53:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/empirecms-template-editor-codemirror/</guid>
+      
+      <description>记录在帝国 CMS 后台模板编辑页面中引入 CodeMirror，实现代码高亮与可读性优化的具体方法。</description>
+      
+    </item>
+    
+    <item>
+      <title>火车头 / 高铁 AI 仿原创插件无限制版</title>
+      <link>http://localhost:1313/posts/ai/locoy-ai-rewrite-plugin/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/locoy-ai-rewrite-plugin/</guid>
+      
+      <description>基于 Ollama 的火车头/高铁 AI 仿原创插件实现方案，无调用次数限制，支持本地或服务器部署。</description>
+      
+    </item>
+    
+    <item>
+      <title>将音频生成 srt 和 fcpxml 字幕文件</title>
+      <link>http://localhost:1313/posts/about-work/audio-to-srt-fcpxml/</link>
+      <pubDate>Wed, 12 Mar 2025 16:20:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/audio-to-srt-fcpxml/</guid>
+      
+      <description>使用 Whisper 对音频进行语音识别，自动生成 SRT 字幕文件和 FCPXML 字幕文件，适用于 Final Cut Pro 的字幕制作流程。</description>
+      
+    </item>
+    
+    <item>
+      <title>不良图片识别并自动打码</title>
+      <link>http://localhost:1313/posts/ai/nsfw-image-detect-and-blur/</link>
+      <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/nsfw-image-detect-and-blur/</guid>
+      
+      <description>基于 YOLO 的不良图片识别方案，对检测到的敏感区域进行自动打码，适用于内容审核、隐私保护等场景。</description>
+      
+    </item>
+    
+    <item>
+      <title>根据关键词让 Ollama 帮我生成文章和图片并发布到 WordPress</title>
+      <link>http://localhost:1313/posts/ai/ollama-auto-publish-wordpress/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/ollama-auto-publish-wordpress/</guid>
+      
+      <description>使用 Ollama + Stable Diffusion 实现从关键词到文章、图片，再自动发布到 WordPress 的完整自动化流程。</description>
+      
+    </item>
+    
+    <item>
+      <title>局域网内配置 Ollama 远程服务</title>
+      <link>http://localhost:1313/posts/ai/ollama-lan-remote/</link>
+      <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/ollama-lan-remote/</guid>
+      
+      <description>&lt;hr&gt;
+&lt;p&gt;默认情况下，Ollama 服务仅在本地运行，不对外提供服务。要使 Ollama 服务能够对外提供服务，你需要设置以下两个环境变量：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;OLLAMA_HOST=0.0.0.0
+OLLAMA_ORIGINS=*
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;1、在 Windows 上配置
+在 Windows 上，Ollama 会继承你的用户和系统环境变量。&lt;/p&gt;
+&lt;p&gt;①通过任务栏退出正在运行的 Ollama 应用。
+②打开 设置（Windows 11） 或 控制面板（Windows 10），搜索“环境变量”。
+③编辑你的用户环境变量：&lt;/p&gt;
+&lt;p&gt;新建或编辑 OLLAMA_HOST，值设为 0.0.0.0
+新建或编辑 OLLAMA_ORIGINS，值设为 *&lt;/p&gt;
+&lt;p&gt;④保存设置并重新启动 Ollama 应用，使配置生效。
+⑤如果你习惯命令行，也可以使用命令行方式（可选）&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;setx OLLAMA_HOST &amp;#34;0.0.0.0&amp;#34;
+setx OLLAMA_ORIGINS &amp;#34;*&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2、在 MacOS 上配置
+①打开命令行终端，输入以下命令：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;launchctl setenv OLLAMA_HOST &amp;#34;0.0.0.0&amp;#34;
+launchctl setenv OLLAMA_ORIGINS &amp;#34;*&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;②重启 Ollama 应用，使配置生效。&lt;/p&gt;
+&lt;p&gt;3、在 Linux 上配置
+在 Linux 上，如果 Ollama 作为 systemd 服务运行，需要通过 systemctl 设置环境变量：
+①编辑 systemd 服务配置&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;systemctl edit ollama.service
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;②在 [Service] 部分添加以下内容，保存并退出&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Google Cloud Shell 创建项目并开启 API 服务生成 JSON 密钥</title>
+      <link>http://localhost:1313/posts/about-work/google-cloud-shell-project-json-key/</link>
+      <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/google-cloud-shell-project-json-key/</guid>
+      
+      <description>通过 Google Cloud Shell 创建新项目，开启指定 API 服务，创建服务账号并生成 JSON 密钥的完整命令行流程。</description>
+      
+    </item>
+    
+    <item>
+      <title>微信域名是否被拦截的检测方法（官方跳转接口）</title>
+      <link>http://localhost:1313/posts/about-work/wechat-domain-block-check/</link>
+      <pubDate>Tue, 29 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wechat-domain-block-check/</guid>
+      
+      <description>通过微信官方跳转接口判断域名是否被微信拦截，并结合重定向结果或 Python 正则进行检测的方法说明。</description>
+      
+    </item>
+    
+    <item>
+      <title>视频批量加水印：Python 脚本实现方案</title>
+      <link>http://localhost:1313/posts/about-work/python-video-batch-watermark/</link>
+      <pubDate>Sun, 13 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/python-video-batch-watermark/</guid>
+      
+      <description>使用 Python 和 moviepy 实现视频批量添加水印的脚本方案，适合无管理员权限环境下的视频处理需求。</description>
+      
+    </item>
+    
+    <item>
+      <title>Debian 下绑定、添加多 IP 的方法（单网卡）</title>
+      <link>http://localhost:1313/posts/about-work/debian-multi-ip-single-nic/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/debian-multi-ip-single-nic/</guid>
+      
+      <description>记录在 Debian 系统中单网卡绑定多个 IP 的配置方法，通过 interfaces 文件实现多 IP 配置，适用于服务器多出口或多业务场景。</description>
+      
+    </item>
+    
+    <item>
+      <title>WordPress REST API 最细接口详解</title>
+      <link>http://localhost:1313/posts/about-work/wordpress-rest-api-detail/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wordpress-rest-api-detail/</guid>
+      
+      <description>详细整理 WordPress REST API 接口用法，包含用户注册、登录、Token 获取、接口权限说明与示例代码，适合二次开发与接口对接。</description>
+      
+    </item>
+    
+    <item>
+      <title>50 个影视资源采集站，视频资源站分享</title>
+      <link>http://localhost:1313/posts/about-work/video-resource-sites-collection/</link>
+      <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/video-resource-sites-collection/</guid>
+      
+      <description>整理并分享 50 个影视资源采集站与视频资源站，包含采集站、在线播放站与资源接口说明，适合站长与采集用户参考。</description>
+      
+    </item>
+    
+    <item>
+      <title>python3 宝塔上传文件接口：requests 发送 POST 请求提交上传文件</title>
+      <link>http://localhost:1313/posts/about-work/baota-upload-file-python/</link>
+      <pubDate>Mon, 26 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/baota-upload-file-python/</guid>
+      
+      <description>介绍如何使用 Python requests 库，通过宝塔面板提供的文件上传接口，发送 POST 请求实现文件上传，并附完整示例代码。</description>
+      
+    </item>
+    
+    <item>
+      <title>树莓派各个版本参数明细</title>
+      <link>http://localhost:1313/posts/about-work/raspberry-pi-model-specifications/</link>
+      <pubDate>Sun, 11 Jul 2021 13:08:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/raspberry-pi-model-specifications/</guid>
+      
+      <description>系统整理 Raspberry Pi（树莓派）各主要型号的硬件参数与基础信息，包括发布时间、CPU、内存规格、接口能力等，作为长期可查阅的入门参考资料。</description>
+      
+    </item>
+    
+    <item>
+      <title>入手 Raspberry Pi 显摆一下 DXXXX</title>
+      <link>http://localhost:1313/posts/about-work/first-raspberry-pi-unboxing-thoughts/</link>
+      <pubDate>Sun, 11 Jul 2021 12:58:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/first-raspberry-pi-unboxing-thoughts/</guid>
+      
+      <description>记录第一次入手 Raspberry Pi 4B 时的动机、纠结与使用预期，从一个新手视角出发的真实体验与想法。</description>
+      
+    </item>
+    
+    <item>
+      <title>frp 内网穿透，远程连接树莓派</title>
+      <link>http://localhost:1313/posts/about-work/frp-nat-raspberry-pi-remote-access/</link>
+      <pubDate>Sat, 10 Jul 2021 20:08:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/frp-nat-raspberry-pi-remote-access/</guid>
+      
+      <description>记录通过 frp 实现内网穿透，从外部网络远程连接树莓派的实际操作过程，包括热点组网、IP 探测和基础 frp 配置。</description>
+      
+    </item>
+    
+    <item>
+      <title>Python 百度链接提交：主动推送链接给百度，实现快速收录</title>
+      <link>http://localhost:1313/posts/about-work/baidu-link-push-python/</link>
+      <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/baidu-link-push-python/</guid>
+      
+      <description>介绍如何使用 Python 调用百度资源平台接口，主动推送站点 URL 给百度搜索引擎，以提升新页面的收录速度。</description>
+      
+    </item>
+    
+    <item>
+      <title>WordPress 外部链接跳转的实现方式</title>
+      <link>http://localhost:1313/posts/about-work/wp-external-link-redirect/</link>
+      <pubDate>Fri, 25 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wp-external-link-redirect/</guid>
+      
+      <description>记录一种在 WordPress 中实现外部链接跳转与参数校验的方法，并给出 Hugo 静态博客下的等价实现方案。</description>
+      
+    </item>
+    
+    <item>
+      <title>WordPress 自动本地化外链图片的实现方式</title>
+      <link>http://localhost:1313/posts/about-work/wp-auto-save-remote-images/</link>
+      <pubDate>Fri, 25 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wp-auto-save-remote-images/</guid>
+      
+      <description>记录一种在 WordPress 中自动下载并本地化外链图片的实现方案，并分析在 Hugo 静态博客体系下的替代思路。</description>
+      
+    </item>
+    
+    <item>
+      <title>WordPress 输入密码显示隐藏内容的实现方式</title>
+      <link>http://localhost:1313/posts/about-work/wp-secret-content/</link>
+      <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wp-secret-content/</guid>
+      
+      <description>记录一种在 WordPress 中通过 shortcode 实现输入密码显示隐藏内容的方法，并给出 Hugo 静态博客的等价实现方案。</description>
+      
+    </item>
+    
+    <item>
+      <title>Nginx 判断搜索引擎蜘蛛并进行跳转的配置示例</title>
+      <link>http://localhost:1313/posts/about-work/nginx-spider-redirect/</link>
+      <pubDate>Mon, 17 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/nginx-spider-redirect/</guid>
+      
+      <description>记录一段通过 Nginx 判断搜索引擎蜘蛛 User-Agent，仅允许蜘蛛访问真实页面，其他访问进行跳转的配置示例。</description>
+      
+    </item>
+    
+    <item>
+      <title>建立数据库连接时出错：Error establishing a database connection 排查记录</title>
+      <link>http://localhost:1313/posts/about-work/wp-db-error-establishing-connection/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wp-db-error-establishing-connection/</guid>
+      
+      <description>一次 WordPress 出现 Error establishing a database connection 的真实排查过程，记录数据库登录、MariaDB 状态与最终解决思路。</description>
+      
+    </item>
+    
+    <item>
+      <title>一个非常简单的 Selenium 提交历史记录脚本</title>
+      <link>http://localhost:1313/posts/about-work/selenium-submit-history/</link>
+      <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/selenium-submit-history/</guid>
+      
+      <description>使用 Selenium 自动向 Wayback Machine 提交页面快照的简单脚本，适合做站点历史留档或定期备份。</description>
+      
+    </item>
+    
+    <item>
+      <title>谁说早起的鸟有虫吃？</title>
+      <link>http://localhost:1313/posts/trivial-matter/early-bird-no-worm/</link>
+      <pubDate>Sun, 29 Dec 2019 09:06:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/trivial-matter/early-bird-no-worm/</guid>
+      
+      <description>&lt;p&gt;在这边做个城市，你要知道店铺营业时间大部分都在上午 10 点左右。&lt;/p&gt;
+&lt;p&gt;今天我本来心情不错，早上 6 点起床洗了个澡，合计着去哪吃早餐。7 点，我带着期待出了门，这个时间街上竟然没什么人，大部分店铺未营业，我打算去的一家路边摊竟然也没有人。&lt;/p&gt;
+&lt;p&gt;在国内你很难想象，一个街边卖煎饼果子的摊，9 点钟开门还会不会卖太多，可能他们 3–4 点就已经在忙着预备顾客了。&lt;/p&gt;
+&lt;p&gt;但是在这里，我等到将近 9 点，依然没有开门。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>robots.txt 究竟要怎样写才是对的？</title>
+      <link>http://localhost:1313/posts/about-work/robots-txt-how-to-write/</link>
+      <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/robots-txt-how-to-write/</guid>
+      
+      <description>结合站长工具生成示例，讲清 robots.txt 的正确写法、常见误区，以及不同搜索引擎蜘蛛的实际处理方式。</description>
+      
+    </item>
+    
+    <item>
+      <title>独走在路边街角，偶遇的新朋友</title>
+      <link>http://localhost:1313/posts/trivial-matter/street-corner-new-friends/</link>
+      <pubDate>Sun, 22 Dec 2019 21:02:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/trivial-matter/street-corner-new-friends/</guid>
+      
+      <description>&lt;p&gt;我认识了几个当地的朋友，我凭着我可怜的英语词汇和 Google 翻译和他们交流。&lt;/p&gt;
+&lt;p&gt;在我下班回住处的路上，Totti 和马路对面的人挥手。我刚好路过刚好看到他们，顺手举起想打个招呼，没想到他给我递了支烟。&lt;/p&gt;
+&lt;p&gt;第二天在同样的地方，我再次遇到了他，我们就这样认识了，互相留了名字。&lt;/p&gt;
+&lt;p&gt;过了几天，还是在同样的地方，约好了。那天是星期三，12 月 18 日，晚上 9 点之后去喝酒。他带着他的几个朋友，我们一共 6 个人。&lt;/p&gt;
+&lt;p&gt;当时我只记得其中一个叫 Khowi，其他人的名字实在记不住。我们互相留了电话，加了 Facebook，但名字还是很难记。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;📌 &lt;strong&gt;当晚的合影（私人记录）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/posts/trivial-matter/street-corner-new-friends/IMG20191217202913.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;那天我喝了很多酒，只吃了两份 chicken（鸡肉），剩下的全是啤酒。&lt;/p&gt;
+&lt;p&gt;也是那天我终于搞明白了 &lt;em&gt;spicy&lt;/em&gt;（辣的）这个词的意思。之前经常听到，回我一句 &lt;em&gt;Okay&lt;/em&gt;，但其实根本不知道它到底意味着什么。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>禁烟的城市，令人厌烦的吸烟区</title>
+      <link>http://localhost:1313/posts/trivial-matter/smoke-free-city-frustrating-smoking-area/</link>
+      <pubDate>Sun, 22 Dec 2019 20:47:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/trivial-matter/smoke-free-city-frustrating-smoking-area/</guid>
+      
+      <description>记录在菲律宾生活期间，对禁烟城市与吸烟区体验的真实感受。</description>
+      
+    </item>
+    
+    <item>
+      <title>马尼拉出行必备工具 App</title>
+      <link>http://localhost:1313/posts/trivial-matter/manila-transport-apps-first-experience/</link>
+      <pubDate>Sun, 22 Dec 2019 20:46:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/trivial-matter/manila-transport-apps-first-experience/</guid>
+      
+      <description>记录初到马尼拉时，为了解决日常出行问题所使用的一些工具类 App。</description>
+      
+    </item>
+    
+    <item>
+      <title>感觉这边的消费还是比较高的，需要找一些便宜的店铺消费</title>
+      <link>http://localhost:1313/posts/trivial-matter/philippines-cost-of-living-first-impression/</link>
+      <pubDate>Sun, 22 Dec 2019 20:44:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/trivial-matter/philippines-cost-of-living-first-impression/</guid>
+      
+      <description>记录初到菲律宾时对当地消费水平的直观感受。</description>
+      
+    </item>
+    
+    <item>
+      <title>初入菲律宾感觉语言不通是一件很可怕的事情</title>
+      <link>http://localhost:1313/posts/trivial-matter/first-time-philippines-language-barrier/</link>
+      <pubDate>Sun, 22 Dec 2019 20:26:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/trivial-matter/first-time-philippines-language-barrier/</guid>
+      
+      <description>记录初到菲律宾时因语言不通带来的不安与真实感受。</description>
+      
+    </item>
+    
+    <item>
+      <title>关于这个博客与我</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      
+      <description>&lt;p&gt;你好，我是 &lt;strong&gt;José&lt;/strong&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是一个不急着给答案的博客。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于我&#34;&gt;关于我&lt;/h2&gt;
+&lt;p&gt;我是 José。&lt;/p&gt;
+&lt;p&gt;我习惯把事情拆开来理解，也习惯把过程记录下来。
+相比“结论正确”，我更在意自己是如何一步步走到这个结论的。&lt;/p&gt;
+&lt;p&gt;写博客对我来说，并不是输出观点，而是一种整理思路的方式。很多内容在写的时候并不成熟，甚至带着明显的当下情绪，但它们真实地记录了某个时间点的判断和选择。&lt;/p&gt;
+&lt;p&gt;我做过技术相关的工作，也长期和代码、系统、配置文件打交道。与此同时，我也对生活本身保持观察的兴趣——不同城市、不同文化、不同环境下，人是如何适应、妥协、继续前进的。&lt;/p&gt;
+&lt;p&gt;这个博客不保证更新频率，也不保证每篇文章都有结论。
+但它基本保证一点：&lt;strong&gt;写下来的，都是当时真实的想法。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果你恰好从中看到了熟悉的困惑，或者相似的经历，那我们大概在某个阶段走在了同一条路上。&lt;/p&gt;
+&lt;h2 id=&#34;关于这个博客&#34;&gt;关于这个博客&lt;/h2&gt;
+&lt;p&gt;这是一个持续记录的个人博客。&lt;/p&gt;
+&lt;p&gt;它最初只是用来保存一些零散的笔记、踩过的坑，以及当下还说不清是否“有用”的想法。后来慢慢发现，这些看似琐碎的记录，反而比精心整理过的总结更真实，也更耐看。&lt;/p&gt;
+&lt;p&gt;博客内容大致涵盖：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;技术相关的实践记录（服务器、Linux、脚本、网站搭建等）&lt;/li&gt;
+&lt;li&gt;写给未来自己的经验备忘&lt;/li&gt;
+&lt;li&gt;海外生活中的日常观察&lt;/li&gt;
+&lt;li&gt;一些当下想清楚、但未必想明白的想法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里没有追求「体系化教程」，也不刻意迎合搜索引擎。
+很多文章写下来的目的很简单——&lt;strong&gt;避免以后再踩一次同样的坑，或者忘记当时是怎么想的。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果这些内容刚好对你有帮助，那是额外的收获。&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

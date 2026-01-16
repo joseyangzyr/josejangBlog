@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>消费 on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E6%B6%88%E8%B4%B9/</link>
+    <description>Recent content in 消费 on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 22 Dec 2019 20:44:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%B6%88%E8%B4%B9/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>感觉这边的消费还是比较高的，需要找一些便宜的店铺消费</title>
+      <link>http://localhost:1313/posts/trivial-matter/philippines-cost-of-living-first-impression/</link>
+      <pubDate>Sun, 22 Dec 2019 20:44:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/trivial-matter/philippines-cost-of-living-first-impression/</guid>
+      
+      <description>记录初到菲律宾时对当地消费水平的直观感受。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>后台模板 on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E5%90%8E%E5%8F%B0%E6%A8%A1%E6%9D%BF/</link>
+    <description>Recent content in 后台模板 on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 06 Apr 2025 16:53:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%90%8E%E5%8F%B0%E6%A8%A1%E6%9D%BF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>受够了帝国CMS后台模板编辑界面，给它加个代码样式让他看起来不再是一大坨</title>
+      <link>http://localhost:1313/posts/about-work/empirecms-template-editor-codemirror/</link>
+      <pubDate>Sun, 06 Apr 2025 16:53:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/empirecms-template-editor-codemirror/</guid>
+      
+      <description>记录在帝国 CMS 后台模板编辑页面中引入 CodeMirror，实现代码高亮与可读性优化的具体方法。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>出行 on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E5%87%BA%E8%A1%8C/</link>
+    <description>Recent content in 出行 on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 22 Dec 2019 20:46:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%87%BA%E8%A1%8C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>马尼拉出行必备工具 App</title>
+      <link>http://localhost:1313/posts/trivial-matter/manila-transport-apps-first-experience/</link>
+      <pubDate>Sun, 22 Dec 2019 20:46:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/trivial-matter/manila-transport-apps-first-experience/</guid>
+      
+      <description>记录初到马尼拉时，为了解决日常出行问题所使用的一些工具类 App。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

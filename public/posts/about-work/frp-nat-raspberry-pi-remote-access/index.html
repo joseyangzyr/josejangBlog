@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">frp 内网穿透，远程连接树莓派 | José&#39;s Blog</title>
+<meta property="og:title" content="frp 内网穿透，远程连接树莓派 | José&#39;s Blog" />
+<meta name="twitter:title" content="frp 内网穿透，远程连接树莓派 | José&#39;s Blog" />
+<meta itemprop="name" content="frp 内网穿透，远程连接树莓派 | José&#39;s Blog" />
+<meta name="application-name" content="frp 内网穿透，远程连接树莓派 | José&#39;s Blog" />
+<meta property="og:site_name" content="José&#39;s Blog" />
+
+<meta name="description" content="记录通过 frp 实现内网穿透，从外部网络远程连接树莓派的实际操作过程，包括热点组网、IP 探测和基础 frp 配置。">
+<meta itemprop="description" content="记录通过 frp 实现内网穿透，从外部网络远程连接树莓派的实际操作过程，包括热点组网、IP 探测和基础 frp 配置。" />
+<meta property="og:description" content="记录通过 frp 实现内网穿透，从外部网络远程连接树莓派的实际操作过程，包括热点组网、IP 探测和基础 frp 配置。" />
+<meta name="twitter:description" content="记录通过 frp 实现内网穿透，从外部网络远程连接树莓派的实际操作过程，包括热点组网、IP 探测和基础 frp 配置。" />
+
+<meta property="og:locale" content="zh-cn" />
+<meta name="language" content="zh-cn" />
+
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/posts/about-work/frp-nat-raspberry-pi-remote-access/" title="中文" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2021-07-10T20:08:00&#43;0800 />
+    <meta property="article:published_time" content=2021-07-10T20:08:00&#43;0800 />
+    <meta property="og:url" content="http://localhost:1313/posts/about-work/frp-nat-raspberry-pi-remote-access/" />
+
+    
+    <meta property="og:article:author" content="José Jang" />
+    <meta property="article:author" content="José Jang" />
+    <meta name="author" content="José Jang" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "frp 内网穿透，远程连接树莓派",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2021-07-10",
+        "description": "记录通过 frp 实现内网穿透，从外部网络远程连接树莓派的实际操作过程，包括热点组网、IP 探测和基础 frp 配置。",
+        "wordCount":  207 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2021-07-10",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "José\u0027s Blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.154.5">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/about-work/frp-nat-raspberry-pi-remote-access/">
+  <meta property="og:site_name" content="José&#39;s Blog">
+  <meta property="og:title" content="frp 内网穿透，远程连接树莓派">
+  <meta property="og:description" content="记录通过 frp 实现内网穿透，从外部网络远程连接树莓派的实际操作过程，包括热点组网、IP 探测和基础 frp 配置。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-07-10T20:08:00+08:00">
+    <meta property="article:modified_time" content="2021-07-10T20:08:00+08:00">
+    <meta property="article:tag" content="Frp">
+    <meta property="article:tag" content="内网穿透">
+    <meta property="article:tag" content="树莓派">
+    <meta property="article:tag" content="SSH">
+    <meta property="article:tag" content="远程连接">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="frp 内网穿透，远程连接树莓派">
+  <meta name="twitter:description" content="记录通过 frp 实现内网穿透，从外部网络远程连接树莓派的实际操作过程，包括热点组网、IP 探测和基础 frp 配置。">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/about-work/frp-nat-raspberry-pi-remote-access/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+    <meta name="color-scheme" content="light dark">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>首页</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        首页
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        文章
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        关于
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">frp 内网穿透，远程连接树莓派</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2021-07-10T20:08:00&#43;08:00" itemprop="datePublished"> 2021-07-10 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>目录</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#frp服务端">frp服务端</a></li>
+    <li><a href="#frp客户端">frp客户端</a></li>
+    <li><a href="#配置开机启动">配置开机启动</a></li>
+    <li><a href="#更多配置">更多配置</a></li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <p>昨天刚拿到的树莓派，今天开始折腾
+环境iphone12（热点）安卓机Termux命令行用来连接iPhone的热点，树莓派连接iphone12开的热点
+Termux：https://play.google.com/store/apps/details?id=com.termux&amp;hl=zh&amp;gl=US
+这三个形成是同一局域网： iphone12，安卓，树莓派
+确定iphone手机上显示为2个连接
+先用安卓机：
+然后尝试ifconfig 得到安卓机本地ip 172.20.10.3</p>
+<blockquote>
+<p>nmap -SP 172.20.10.0/24</p>
+</blockquote>
+<p>得到树莓派本地ip 172.20.10.9
+然后就可以用安卓机ssh连接啦</p>
+<p>关于更多内网穿透的内容请访问：
+推荐5款最好用的内网穿透工具：https://www.josejang.com/copy/181.html</p>
+<p>ok 开始配置frp：</p>
+<h2 id="frp服务端">frp服务端</h2>
+<p>在你要部署frp的服务器或vps上运行</p>
+<blockquote>
+<p>getconf LONG_BIT</p>
+</blockquote>
+<p>得到结果：</p>
+<blockquote>
+<p>64</p>
+</blockquote>
+<p>再查看下当前服务器版本架构</p>
+<blockquote>
+<p>arch</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/fatedier/frp/releases">https://github.com/fatedier/frp/releases</a></p>
+</blockquote>
+<p>下载软件包时选择对应的版本：</p>
+<p>386	X86架构
+386	X86架构
+amd64	amd架构
+arm	arm架构
+arm64	64位arm架构
+mips	mips架构
+mips64	64位mips架构
+mipsle	mipsle架构
+mips64le	64位mipsle架构</p>
+<p>我选择的是：
+frp_0.37.0_linux_arm64.tar.gz</p>
+<blockquote>
+<p>wget <a href="https://github.com/fatedier/frp/releases/download/v0.37.0/frp_0.37.0_linux_arm64.tar.gz">https://github.com/fatedier/frp/releases/download/v0.37.0/frp_0.37.0_linux_arm64.tar.gz</a></p>
+</blockquote>
+<p>然后解压：</p>
+<blockquote>
+<p>tar xvf frp_0.37.0_linux_arm64.tar.gz</p>
+</blockquote>
+<p>移动：</p>
+<blockquote>
+<p>mv frp_0.37.0_linux_arm64 /usr/local/frp</p>
+</blockquote>
+<p>配置文件：</p>
+<blockquote>
+<p>nano /usr/local/frp/frps.ini</p>
+</blockquote>
+<p>在打开的文件中写入：</p>
+<blockquote>
+<p>[common]
+bind_port = 6000
+dashboard_port = 6500
+dashboard_user = 你的仪表盘用户名
+dashboard_pwd = 你的仪表盘密码</p>
+</blockquote>
+<p>ctrl+x 出现提示按Y</p>
+<p>启动服务：</p>
+<blockquote>
+<p>sudo nohup /usr/local/frp/frps -c /usr/local/frp/frps.ini&gt;/usr/local/frp/frps.log 2&gt;&amp;1 &amp;</p>
+</blockquote>
+<p>到这里服务端配置结束（先不要关闭你的命令行窗口，等下还有设置开启自启）</p>
+<h2 id="frp客户端">frp客户端</h2>
+<p>同服务端，先查看系统是32位还是64位，我今天刚在树莓派官网下载的32位系统，所以这里略过了，命令同上
+这次需要下载frp_0.37.0_linux_arm.tar.gz
+安卓机ssh链接到树莓派后输入：</p>
+<blockquote>
+<p>wget <a href="https://github.com/fatedier/frp/releases/download/v0.37.0/frp_0.37.0_linux_arm.tar.gz">https://github.com/fatedier/frp/releases/download/v0.37.0/frp_0.37.0_linux_arm.tar.gz</a></p>
+</blockquote>
+<p>步骤同服端，解压</p>
+<blockquote>
+<p>tar xvf frp_0.37.0_linux_arm.tar.gz</p>
+</blockquote>
+<p>移动：</p>
+<blockquote>
+<p>mv frp_0.37.0_linux_arm /usr/local/frp</p>
+</blockquote>
+<p>配置文件：(注意这里的是frpc，服务端是frps)</p>
+<blockquote>
+<p>nano /usr/local/frp/frpc.ini</p>
+</blockquote>
+<p>在打开的文件中写入：</p>
+<blockquote>
+<p>[common]
+server_addr = 你的服务器的IP地址
+server_port = 6000
+[ssh] # 任意设置，需要保证注册到服务端是唯一端
+type = tcp # 穿透tcp类型的流量
+local_ip = 127.0.0.1  # 局域网地址，可以是非本机ip
+local_port = 22  # 自己电脑上端服务端口
+remote_port = 7000 # 这个端口会在服务器端监听，后续公网访问通过该端口</p>
+</blockquote>
+<p>由于我首次安装，不知道能否链接上，所以先就填上一个端口吧</p>
+<p>启动服务：</p>
+<blockquote>
+<p>sudo /usr/local/frp/frpc -c /usr/local/frp/frpc.ini</p>
+</blockquote>
+<p><img src="/posts/about-work/frp-nat-raspberry-pi-remote-access/F88DA3EE-43C8-47EA-BDF2-103F9D7CD4BE-300x225.jpeg" alt="">
+到此配置结束，现在你就可以在试试ssh -p 7000 pi@你的服务器的IP地址，看看是否能链接上呢？</p>
+<h2 id="配置开机启动">配置开机启动</h2>
+<p>服务端配置开机启动：</p>
+<blockquote>
+<p>sudo nano /etc/systemd/system/frpc.service</p>
+</blockquote>
+<p>在文档中写入如下内容：</p>
+<blockquote>
+<p>[Unit]
+Description=frpc daemon
+After=multi-user.target
+[Service]
+Restart=always
+RestartSec=5
+TimeoutStartSec=30
+WorkingDirectory=/usr/local/frp
+ExecStart=/usr/local/frp/frpc -c /usr/local/frp/frpc.ini
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target</p>
+</blockquote>
+<p>ctrl+x 出现提示按Y</p>
+<p>打开开机自启动</p>
+<blockquote>
+<p>sudo systemctl enable frps</p>
+</blockquote>
+<p>关闭开机自启</p>
+<blockquote>
+<p>systemctl disable frps</p>
+</blockquote>
+<p>客户端操作与服务端相同，只是把上面的frps改成frpc</p>
+<p>重启</p>
+<blockquote>
+<p>sudo systemctl restart frps</p>
+</blockquote>
+<p>启动 frps</p>
+<blockquote>
+<p>sudo systemctl start frps</p>
+</blockquote>
+<p>停止</p>
+<blockquote>
+<p>sudo systemctl stop frps</p>
+</blockquote>
+<p>查看应用日志</p>
+<blockquote>
+<p>sudo systemctl status frps</p>
+</blockquote>
+<h2 id="更多配置">更多配置</h2>
+<p>frps 完整配置文件
+<a href="https://github.com/fatedier/frp/blob/master/conf/frps_full.ini">https://github.com/fatedier/frp/blob/master/conf/frps_full.ini</a></p>
+<p>frpc 完整配置文件
+<a href="https://github.com/fatedier/frp/blob/master/conf/frpc_full.ini">https://github.com/fatedier/frp/blob/master/conf/frpc_full.ini</a></p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="mailto:josejangoo@gmail.com?subject=Hello&amp;body=Hi%20Jose" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/jos%c3%a9-jang-2218813a3" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="/index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2026 José Jang.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="回到顶部" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

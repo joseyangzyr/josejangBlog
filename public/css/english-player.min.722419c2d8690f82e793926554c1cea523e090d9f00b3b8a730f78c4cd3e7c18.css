@@ -1,0 +1,1 @@
+.responsive-video{aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden}#subtitles{max-height:300px;overflow-y:auto;border:1px solid #ccc;padding:10px;scroll-behavior:smooth}.subtitle{padding:6px 10px;cursor:pointer}.subtitle:hover{background-color:#75842c}.subtitle.active{background:#d6f1ff;border-left:4px solid #39f;font-weight:700}

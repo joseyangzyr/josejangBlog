@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yolo on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/yolo/</link>
+    <description>Recent content in Yolo on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 12 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/yolo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>不良图片识别并自动打码</title>
+      <link>http://localhost:1313/posts/ai/nsfw-image-detect-and-blur/</link>
+      <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/nsfw-image-detect-and-blur/</guid>
+      
+      <description>基于 YOLO 的不良图片识别方案，对检测到的敏感区域进行自动打码，适用于内容审核、隐私保护等场景。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

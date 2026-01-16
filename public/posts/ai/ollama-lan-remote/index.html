@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">局域网内配置 Ollama 远程服务 | José&#39;s Blog</title>
+<meta property="og:title" content="局域网内配置 Ollama 远程服务 | José&#39;s Blog" />
+<meta name="twitter:title" content="局域网内配置 Ollama 远程服务 | José&#39;s Blog" />
+<meta itemprop="name" content="局域网内配置 Ollama 远程服务 | José&#39;s Blog" />
+<meta name="application-name" content="局域网内配置 Ollama 远程服务 | José&#39;s Blog" />
+<meta property="og:site_name" content="José&#39;s Blog" />
+
+<meta name="description" content="在局域网内配置 Ollama 远程访问，使其他设备可调用本地模型服务">
+<meta itemprop="description" content="在局域网内配置 Ollama 远程访问，使其他设备可调用本地模型服务" />
+<meta property="og:description" content="在局域网内配置 Ollama 远程访问，使其他设备可调用本地模型服务" />
+<meta name="twitter:description" content="在局域网内配置 Ollama 远程访问，使其他设备可调用本地模型服务" />
+
+<meta property="og:locale" content="zh-cn" />
+<meta name="language" content="zh-cn" />
+
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/posts/ai/ollama-lan-remote/" title="中文" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2025-02-28T00:00:00Z />
+    <meta property="article:published_time" content=2025-02-28T00:00:00Z />
+    <meta property="og:url" content="http://localhost:1313/posts/ai/ollama-lan-remote/" />
+
+    
+    <meta property="og:article:author" content="José Jang" />
+    <meta property="article:author" content="José Jang" />
+    <meta name="author" content="José Jang" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "局域网内配置 Ollama 远程服务",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2025-02-28",
+        "description": "在局域网内配置 Ollama 远程访问，使其他设备可调用本地模型服务",
+        "wordCount":  164 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2025-02-28",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "José\u0027s Blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.154.5">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/ai/ollama-lan-remote/">
+  <meta property="og:site_name" content="José&#39;s Blog">
+  <meta property="og:title" content="局域网内配置 Ollama 远程服务">
+  <meta property="og:description" content="在局域网内配置 Ollama 远程访问，使其他设备可调用本地模型服务">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-28T00:00:00+00:00">
+    <meta property="article:tag" content="Ollama">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="本地部署">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="局域网内配置 Ollama 远程服务">
+  <meta name="twitter:description" content="在局域网内配置 Ollama 远程访问，使其他设备可调用本地模型服务">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/ai/ollama-lan-remote/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+    <meta name="color-scheme" content="light dark">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>首页</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        首页
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        文章
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        关于
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">局域网内配置 Ollama 远程服务</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-02-28T00:00:00&#43;00:00" itemprop="datePublished"> 2025-02-28 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>目录</b></summary>
+        <nav id="TableOfContents"></nav>
+    </details>
+            <div class="page-content">
+                <hr>
+<p>默认情况下，Ollama 服务仅在本地运行，不对外提供服务。要使 Ollama 服务能够对外提供服务，你需要设置以下两个环境变量：</p>
+<pre tabindex="0"><code>OLLAMA_HOST=0.0.0.0
+OLLAMA_ORIGINS=*
+</code></pre><p>1、在 Windows 上配置
+在 Windows 上，Ollama 会继承你的用户和系统环境变量。</p>
+<p>①通过任务栏退出正在运行的 Ollama 应用。
+②打开 设置（Windows 11） 或 控制面板（Windows 10），搜索“环境变量”。
+③编辑你的用户环境变量：</p>
+<p>新建或编辑 OLLAMA_HOST，值设为 0.0.0.0
+新建或编辑 OLLAMA_ORIGINS，值设为 *</p>
+<p>④保存设置并重新启动 Ollama 应用，使配置生效。
+⑤如果你习惯命令行，也可以使用命令行方式（可选）</p>
+<pre tabindex="0"><code>setx OLLAMA_HOST &#34;0.0.0.0&#34;
+setx OLLAMA_ORIGINS &#34;*&#34;
+</code></pre><p>2、在 MacOS 上配置
+①打开命令行终端，输入以下命令：</p>
+<pre tabindex="0"><code>launchctl setenv OLLAMA_HOST &#34;0.0.0.0&#34;
+launchctl setenv OLLAMA_ORIGINS &#34;*&#34;
+</code></pre><p>②重启 Ollama 应用，使配置生效。</p>
+<p>3、在 Linux 上配置
+在 Linux 上，如果 Ollama 作为 systemd 服务运行，需要通过 systemctl 设置环境变量：
+①编辑 systemd 服务配置</p>
+<pre tabindex="0"><code>systemctl edit ollama.service
+</code></pre><p>②在 [Service] 部分添加以下内容，保存并退出</p>
+<pre tabindex="0"><code>[Service]
+Environment=&#34;OLLAMA_HOST=0.0.0.0&#34;
+Environment=&#34;OLLAMA_ORIGINS=*&#34;
+</code></pre><p>③重新加载 systemd 并重启 Ollama：</p>
+<pre tabindex="0"><code>systemctl daemon-reload
+systemctl restart ollama
+</code></pre><p>Ollama 服务 IP 地址
+配置完成后，Ollama 服务将能在当前网络（如家庭 Wifi）中提供服务，你可以在局域网内的其他设备上连接到 Ollama。</p>
+<p>通常，Ollama 服务的 IP 地址类似于 192.168.X.X，你可以在你的客户端或者插件中设置 API Host 为：</p>
+<p>http://192.168.X.X:11434
+<img src="/posts/ai/ollama-lan-remote/Snipaste_2025-02-28_18-24-44.png" alt="">
+连接远程 Ollama
+我们可以使用 Chatbox 软件或 Page Assist 浏览器插件来连接远程 Ollama。</p>
+<p>【Chatbox】【Page Assist】
+Ollama 支持多个 UI 界面（查看官方支持列表），这里我们使用 Chatbox 来连接远程 Ollama。</p>
+<p>安装 Chatbox 后打开“设置”，“模型提供方”选择：ollama api，“API域名”填写远程服务的IP地址和端口，例如我的远程电脑的IP是 192.168.31.30，这里的值就是：http://192.168.31.30:11434 如果局域网没有配置错误，就能看到你远程运行的模型，选择其中一个。</p>
+<p>我这里是为了给siri配一个AI助手，快捷指令分享：</p>
+<p><a href="https://www.icloud.com/shortcuts/804d55cf5d0b4a90aaaffeabfb7b3963">https://www.icloud.com/shortcuts/804d55cf5d0b4a90aaaffeabfb7b3963</a></p>
+<p><img src="/posts/ai/ollama-lan-remote/IMG_5145.png" alt="">
+将ip地址改成你自己的，获取内容中的请求体 model改成你的模型，
+查看模型列表：</p>
+<pre tabindex="0"><code>ollama list
+</code></pre><p>关闭远程访问
+如果不想让 Ollama 继续对外提供服务，可以使用这些命令取消远程访问。</p>
+<p>【Windows】【MacOS】</p>
+<pre tabindex="0"><code>setx OLLAMA_HOST &#34;&#34; 
+setx OLLAMA_ORIGINS &#34;&#34;
+</code></pre><p>注意事项
+1、确保你的设备在同一 WiFi 网络下
+2、可能需要在防火墙中允许 Ollama 服务的端口（默认为 11434），具体取决于你的操作系统和网络环境
+3、为避免安全风险，请不要将 Ollama 服务暴露在公共网络中，家庭 WiFi 网络是一个相对安全的环境
+4、如果服务运行不稳定，可以尝试 sudo systemctl restart ollama（Linux）或重启应用（Mac/Windows）</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="mailto:josejangoo@gmail.com?subject=Hello&amp;body=Hi%20Jose" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/jos%c3%a9-jang-2218813a3" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="/index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2026 José Jang.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="回到顶部" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/python/</link>
+    <description>Recent content in Python on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 05 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何去背？Python rembg 实现 AI 自动去背景的完整教程</title>
+      <link>http://localhost:1313/posts/ai/python-rembg-remove-background/</link>
+      <pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ai/python-rembg-remove-background/</guid>
+      
+      <description>基于 rembg（U-2-Net）的 Python 自动去背景完整示例，支持批量处理 PNG/JPG/WebP，适合本地或服务器使用。</description>
+      
+    </item>
+    
+    <item>
+      <title>将音频生成 srt 和 fcpxml 字幕文件</title>
+      <link>http://localhost:1313/posts/about-work/audio-to-srt-fcpxml/</link>
+      <pubDate>Wed, 12 Mar 2025 16:20:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/audio-to-srt-fcpxml/</guid>
+      
+      <description>使用 Whisper 对音频进行语音识别，自动生成 SRT 字幕文件和 FCPXML 字幕文件，适用于 Final Cut Pro 的字幕制作流程。</description>
+      
+    </item>
+    
+    <item>
+      <title>微信域名是否被拦截的检测方法（官方跳转接口）</title>
+      <link>http://localhost:1313/posts/about-work/wechat-domain-block-check/</link>
+      <pubDate>Tue, 29 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/wechat-domain-block-check/</guid>
+      
+      <description>通过微信官方跳转接口判断域名是否被微信拦截，并结合重定向结果或 Python 正则进行检测的方法说明。</description>
+      
+    </item>
+    
+    <item>
+      <title>视频批量加水印：Python 脚本实现方案</title>
+      <link>http://localhost:1313/posts/about-work/python-video-batch-watermark/</link>
+      <pubDate>Sun, 13 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/python-video-batch-watermark/</guid>
+      
+      <description>使用 Python 和 moviepy 实现视频批量添加水印的脚本方案，适合无管理员权限环境下的视频处理需求。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

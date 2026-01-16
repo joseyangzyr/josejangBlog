@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gcloud on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/gcloud/</link>
+    <description>Recent content in Gcloud on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 06 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/gcloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Cloud Shell 创建项目并开启 API 服务生成 JSON 密钥</title>
+      <link>http://localhost:1313/posts/about-work/google-cloud-shell-project-json-key/</link>
+      <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/about-work/google-cloud-shell-project-json-key/</guid>
+      
+      <description>通过 Google Cloud Shell 创建新项目，开启指定 API 服务，创建服务账号并生成 JSON 密钥的完整命令行流程。</description>
+      
+    </item>
+    
+  </channel>
+</rss>
