@@ -1,5 +1,5 @@
 title = "José's Blog"
-baseURL = "http://www.josejang.com/"
+baseURL = "https://www.josejang.com/"
 
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
