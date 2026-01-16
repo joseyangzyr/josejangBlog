@@ -1,5 +1,5 @@
-title = "José's Blog"
-baseURL = "http://localhost:1313/"
+title = "José｜一些过程被记录下来的地方"
+baseURL = "http://www.josejang.com/"
 
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
@@ -50,7 +50,7 @@ ignoreErrors = ["additional-script-loading-error"]
 
   [Languages.zh-cn.params]
     sitename = "José's Blog"
-    description = "记录 Hugo / WordPress / AI 自动化 与可复用的实践经验"
+    description = "这是一个不急着给答案的个人博客，记录技术实践、生活观察与当下真实的思考过程。很多内容并不成熟，但都来自真实经历与判断。"
     defaultColor = "dark"
     mainSections = ["posts"]
     toc = true
