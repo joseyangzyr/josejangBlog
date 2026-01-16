@@ -1,4 +1,4 @@
-title = "José｜一些过程被记录下来的地方"
+title = "José's Blog"
 baseURL = "http://www.josejang.com/"
 
 languageCode = "zh-cn"
@@ -49,7 +49,7 @@ ignoreErrors = ["additional-script-loading-error"]
       weight = 50
 
   [Languages.zh-cn.params]
-    sitename = "José's Blog"
+    sitename = "José｜一些过程被记录下来的地方"
     description = "这是一个不急着给答案的个人博客，记录技术实践、生活观察与当下真实的思考过程。很多内容并不成熟，但都来自真实经历与判断。"
     defaultColor = "dark"
     mainSections = ["posts"]
