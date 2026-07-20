@@ -42,5 +42,5 @@ C:\Users\Administrator\.cache\huggingface\hub\
 然后选择你要刚刚下载的模型
 ![](select_model.png)
 
-加载后就可以使用啦
+加载后就可以使用啦, 快去试试吧！
 
