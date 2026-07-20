@@ -8,7 +8,7 @@
 <meta name="twitter:title" content="WordPress 外部链接跳转的实现方式 | José&#39;s Blog" />
 <meta itemprop="name" content="WordPress 外部链接跳转的实现方式 | José&#39;s Blog" />
 <meta name="application-name" content="WordPress 外部链接跳转的实现方式 | José&#39;s Blog" />
-<meta property="og:site_name" content="José&#39;s Blog" />
+<meta property="og:site_name" content="José｜一些过程被记录下来的地方" />
 
 <meta name="description" content="记录一种在 WordPress 中实现外部链接跳转与参数校验的方法，并给出 Hugo 静态博客下的等价实现方案。">
 <meta itemprop="description" content="记录一种在 WordPress 中实现外部链接跳转与参数校验的方法，并给出 Hugo 静态博客下的等价实现方案。" />
@@ -68,25 +68,25 @@
     </script>
 
 
-<meta name="generator" content="Hugo 0.154.5">
+<meta name="generator" content="Hugo 0.164.0">
 
     
     <meta property="og:url" content="http://localhost:1313/posts/about-work/wp-external-link-redirect/">
-  <meta property="og:site_name" content="José&#39;s Blog">
-  <meta property="og:title" content="WordPress 外部链接跳转的实现方式">
-  <meta property="og:description" content="记录一种在 WordPress 中实现外部链接跳转与参数校验的方法，并给出 Hugo 静态博客下的等价实现方案。">
-  <meta property="og:locale" content="zh_cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2021-06-25T00:00:00+00:00">
-    <meta property="article:modified_time" content="2021-06-25T00:00:00+00:00">
+	<meta property="og:site_name" content="José&#39;s Blog">
+	<meta property="og:title" content="WordPress 外部链接跳转的实现方式">
+	<meta property="og:description" content="记录一种在 WordPress 中实现外部链接跳转与参数校验的方法，并给出 Hugo 静态博客下的等价实现方案。">
+	<meta property="og:locale" content="zh_cn">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2021-06-25T00:00:00+00:00">
+		<meta property="article:modified_time" content="2021-06-25T00:00:00+00:00">
 
 
     
     
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="WordPress 外部链接跳转的实现方式">
-  <meta name="twitter:description" content="记录一种在 WordPress 中实现外部链接跳转与参数校验的方法，并给出 Hugo 静态博客下的等价实现方案。">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="WordPress 外部链接跳转的实现方式">
+	<meta name="twitter:description" content="记录一种在 WordPress 中实现外部链接跳转与参数校验的方法，并给出 Hugo 静态博客下的等价实现方案。">
 
 
     
@@ -267,13 +267,13 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nv">$matches</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">            <span class="k">foreach</span><span class="p">(</span><span class="nv">$matches</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$val</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="nx">strpos</span><span class="p">(</span><span class="nv">$val</span><span class="p">,</span><span class="s1">&#39;://&#39;</span><span class="p">)</span><span class="o">!==</span><span class="k">false</span> <span class="o">&amp;&amp;</span> <span class="nx">strpos</span><span class="p">(</span><span class="nv">$val</span><span class="p">,</span><span class="nx">home_url</span><span class="p">())</span><span class="o">===</span><span class="k">false</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">preg_match</span><span class="p">(</span><span class="s1">&#39;/\.(jpg|jepg|png|ico|bmp|gif|tiff)/i&#39;</span><span class="p">,</span><span class="nv">$val</span><span class="p">)){</span>
-</span></span><span class="line"><span class="cl">                    <span class="nv">$content</span><span class="o">=</span><span class="nx">str_replace</span><span class="p">(</span><span class="s2">&#34;href=</span><span class="se">\&#34;</span><span class="si">$val\</span><span class="s2">&#34;&#34;, &#34;</span><span class="nx">href</span><span class="o">=</span><span class="nx">\</span><span class="s2">&#34;&#34;</span><span class="o">.</span><span class="nx">home_url</span><span class="p">()</span><span class="o">.</span><span class="s2">&#34;/go/?url=</span><span class="si">$val\</span><span class="s2">&#34;</span> <span class="s2">&#34;,</span><span class="si">$content</span><span class="s2">);
-</span></span></span><span class="line"><span class="cl"><span class="s2">                }
-</span></span></span><span class="line"><span class="cl"><span class="s2">            }
-</span></span></span><span class="line"><span class="cl"><span class="s2">        }
-</span></span></span><span class="line"><span class="cl"><span class="s2">        return </span><span class="si">$content</span><span class="s2">;
-</span></span></span><span class="line"><span class="cl"><span class="s2">    }
-</span></span></span></code></pre></div>
+</span></span><span class="line"><span class="cl">                    <span class="nv">$content</span><span class="o">=</span><span class="nx">str_replace</span><span class="p">(</span><span class="s2">&#34;href=</span><span class="se">\&#34;</span><span class="si">$val</span><span class="se">\&#34;</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;href=</span><span class="se">\&#34;</span><span class="s2">&#34;</span><span class="o">.</span><span class="nx">home_url</span><span class="p">()</span><span class="o">.</span><span class="s2">&#34;/go/?url=</span><span class="si">$val</span><span class="se">\&#34;</span><span class="s2"> &#34;</span><span class="p">,</span><span class="nv">$content</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nv">$content</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></div>
             </div>
         </article></main>
 </div>

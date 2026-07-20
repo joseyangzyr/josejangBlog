@@ -62,6 +62,7 @@ ignoreErrors = ["additional-script-loading-error"]
   [Languages.zh-cn.params.author]
     avatar = "avatar.png"
     name = "José Jang"
+    email = "josejangoo@gmail.com"
     intro = "José's blog"
     description = "菲律宾生活琐碎，和日常笔记"
 

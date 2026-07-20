@@ -6,12 +6,14 @@
     <description>Recent content in FCPXML on José&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <managingEditor>josejangoo@gmail.com (José Jang)</managingEditor>
+    <webMaster>josejangoo@gmail.com (José Jang)</webMaster>
     <lastBuildDate>Wed, 12 Mar 2025 16:20:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/fcpxml/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>将音频生成 srt 和 fcpxml 字幕文件</title>
       <link>http://localhost:1313/posts/about-work/audio-to-srt-fcpxml/</link>
       <pubDate>Wed, 12 Mar 2025 16:20:00 +0800</pubDate>
-      
+      <author>josejangoo@gmail.com (José Jang)</author>
       <guid>http://localhost:1313/posts/about-work/audio-to-srt-fcpxml/</guid>
       
       <description>使用 Whisper 对音频进行语音识别，自动生成 SRT 字幕文件和 FCPXML 字幕文件，适用于 Final Cut Pro 的字幕制作流程。</description>

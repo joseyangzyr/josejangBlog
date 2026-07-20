@@ -6,12 +6,14 @@
     <description>Recent content in 菲律宾 on José&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <managingEditor>josejangoo@gmail.com (José Jang)</managingEditor>
+    <webMaster>josejangoo@gmail.com (José Jang)</webMaster>
     <lastBuildDate>Sun, 22 Dec 2019 21:02:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>独走在路边街角，偶遇的新朋友</title>
       <link>http://localhost:1313/posts/trivial-matter/street-corner-new-friends/</link>
       <pubDate>Sun, 22 Dec 2019 21:02:00 +0800</pubDate>
-      
+      <author>josejangoo@gmail.com (José Jang)</author>
       <guid>http://localhost:1313/posts/trivial-matter/street-corner-new-friends/</guid>
       
       <description>&lt;p&gt;我认识了几个当地的朋友，我凭着我可怜的英语词汇和 Google 翻译和他们交流。&lt;/p&gt;
@@ -32,7 +34,7 @@
       <title>禁烟的城市，令人厌烦的吸烟区</title>
       <link>http://localhost:1313/posts/trivial-matter/smoke-free-city-frustrating-smoking-area/</link>
       <pubDate>Sun, 22 Dec 2019 20:47:00 +0800</pubDate>
-      
+      <author>josejangoo@gmail.com (José Jang)</author>
       <guid>http://localhost:1313/posts/trivial-matter/smoke-free-city-frustrating-smoking-area/</guid>
       
       <description>记录在菲律宾生活期间，对禁烟城市与吸烟区体验的真实感受。</description>
@@ -43,7 +45,7 @@
       <title>马尼拉出行必备工具 App</title>
       <link>http://localhost:1313/posts/trivial-matter/manila-transport-apps-first-experience/</link>
       <pubDate>Sun, 22 Dec 2019 20:46:00 +0800</pubDate>
-      
+      <author>josejangoo@gmail.com (José Jang)</author>
       <guid>http://localhost:1313/posts/trivial-matter/manila-transport-apps-first-experience/</guid>
       
       <description>记录初到马尼拉时，为了解决日常出行问题所使用的一些工具类 App。</description>
@@ -54,7 +56,7 @@
       <title>感觉这边的消费还是比较高的，需要找一些便宜的店铺消费</title>
       <link>http://localhost:1313/posts/trivial-matter/philippines-cost-of-living-first-impression/</link>
       <pubDate>Sun, 22 Dec 2019 20:44:00 +0800</pubDate>
-      
+      <author>josejangoo@gmail.com (José Jang)</author>
       <guid>http://localhost:1313/posts/trivial-matter/philippines-cost-of-living-first-impression/</guid>
       
       <description>记录初到菲律宾时对当地消费水平的直观感受。</description>
@@ -65,7 +67,7 @@
       <title>初入菲律宾感觉语言不通是一件很可怕的事情</title>
       <link>http://localhost:1313/posts/trivial-matter/first-time-philippines-language-barrier/</link>
       <pubDate>Sun, 22 Dec 2019 20:26:00 +0800</pubDate>
-      
+      <author>josejangoo@gmail.com (José Jang)</author>
       <guid>http://localhost:1313/posts/trivial-matter/first-time-philippines-language-barrier/</guid>
       
       <description>记录初到菲律宾时因语言不通带来的不安与真实感受。</description>
