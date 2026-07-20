@@ -5,10 +5,21 @@
     <link>http://localhost:1313/posts/ai/</link>
     <description>Recent content in AI on José&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>zh-CN</language>
     <managingEditor>josejangoo@gmail.com (José Jang)</managingEditor>
     <webMaster>josejangoo@gmail.com (José Jang)</webMaster>
-    <lastBuildDate>Sat, 10 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Jul 2026 15:30:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gemma4 越狱版 使用指南：安装、模型下载与注意事项</title>
+      <link>http://localhost:1313/posts/ai/gemma4-jailbreak-guide/</link>
+      <pubDate>Mon, 20 Jul 2026 15:30:00 +0800</pubDate>
+      <author>josejangoo@gmail.com (José Jang)</author>
+      <guid>http://localhost:1313/posts/ai/gemma4-jailbreak-guide/</guid>
+      
+      <description>介绍 Gemma 越狱版模型的特点、安装方式、运行方法以及与官方 Gemma 模型的区别。</description>
+      
+    </item>
+    
     <item>
       <title>我如何用 AI 半自动维护一个网站（完整流程）</title>
       <link>http://localhost:1313/posts/ai/ai-semi-automatic-site-maintenance/</link>

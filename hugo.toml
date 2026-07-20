@@ -1,7 +1,7 @@
 title = "José's Blog"
 baseURL = "https://www.josejang.com/"
 
-languageCode = "zh-cn"
+locale = "zh-CN"
 defaultContentLanguage = "zh-cn"
 defaultContentLanguageInSubdir = false
 
@@ -24,8 +24,8 @@ ignoreErrors = ["additional-script-loading-error"]
 # 中文（主站）
 ############################
 [Languages.zh-cn]
-  languageName = "中文"
-  languageCode = "zh-cn"
+  label = "简体中文"
+  locale = "zh-CN"
   contentDir = "content/zh"
   weight = 1
 

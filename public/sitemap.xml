@@ -3,19 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/ai/</loc>
-    <lastmod>2026-01-10T00:00:00+00:00</lastmod>
+    <lastmod>2026-07-20T15:30:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/ai/</loc>
-    <lastmod>2026-01-10T00:00:00+00:00</lastmod>
+    <lastmod>2026-07-20T15:30:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-01-10T00:00:00+00:00</lastmod>
+    <lastmod>2026-07-20T15:30:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/ai/gemma4-jailbreak-guide/</loc>
+    <lastmod>2026-07-20T15:30:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-01-10T00:00:00+00:00</lastmod>
+    <lastmod>2026-07-20T15:30:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-01-10T00:00:00+00:00</lastmod>
+    <lastmod>2026-07-20T15:30:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/ai/ai-semi-automatic-site-maintenance/</loc>
     <lastmod>2026-01-10T00:00:00+00:00</lastmod>
