@@ -55,3 +55,6 @@ C:\Users\Administrator\.cache\huggingface\hub\
 
 这是我使用ollama 配置 Gemma4 模型的的效果：
 ![ollama使用Gemma4测试](dome_ollama_gemma4.png)
+
+这是我vLLM中 Qwen3.6-36B-A3B 模型的效果：
+![Qwen3.6-36B-A3B测试](dome_vllm_qwen3.6.png)
