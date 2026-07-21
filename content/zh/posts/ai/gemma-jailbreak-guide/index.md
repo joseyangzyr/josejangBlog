@@ -36,7 +36,7 @@ irm https://unsloth.ai/install.ps1 | iex
 
 
 把下载好的模型放入模型文件夹
-C:\Users\Administrator\.cache\huggingface\hub\
+C:\Users\Administrator\\.cache\huggingface\hub\
 
 ![Gub页面截图](unsloth_hub_on_device.png)
 
