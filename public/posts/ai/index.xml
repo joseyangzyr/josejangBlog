@@ -8,7 +8,18 @@
     <language>zh-CN</language>
     <managingEditor>josejangoo@gmail.com (José Jang)</managingEditor>
     <webMaster>josejangoo@gmail.com (José Jang)</webMaster>
-    <lastBuildDate>Mon, 20 Jul 2026 15:30:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我经常用的的ai 提示词收藏，不断更新中</title>
+      <link>http://localhost:1313/posts/ai/ai-prompts-collect/</link>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
+      <author>josejangoo@gmail.com (José Jang)</author>
+      <guid>http://localhost:1313/posts/ai/ai-prompts-collect/</guid>
+      
+      <description>记录我经常使用的AI提示词</description>
+      
+    </item>
+    
     <item>
       <title>Gemma4 越狱版 使用指南：安装、模型下载与注意事项</title>
       <link>http://localhost:1313/posts/ai/gemma4-jailbreak-guide/</link>
