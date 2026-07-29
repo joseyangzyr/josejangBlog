@@ -1,11 +1,11 @@
 ---
-title: "让ai有感情的读课文"
+title: "Qwen + GPT-SoVITS：实现全自动情绪驱动的AI有声书工作流"
 date: 2026-07-25
 slug: gpt-sovits
-description: "让ai有感情的读课文"
+description: "Qwen + GPT-SoVITS：实现全自动情绪驱动的AI有声书工作流"
 categories:
   - AI
-summary: "让ai有感情的读课文"
+summary: "Qwen + GPT-SoVITS：实现全自动情绪驱动的AI有声书工作流"
 aliases:
   - /ai/gpt-sovits.html
 ---
