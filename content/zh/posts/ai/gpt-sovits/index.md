@@ -1,11 +1,11 @@
 ---
-title: "Qwen + GPT-SoVITS：实现全自动情绪驱动的AI有声书工作流"
+title: "别再用机械音了！教你用AI自动化实现“情绪演播级”有声书"
 date: 2026-07-25
 slug: gpt-sovits
-description: "Qwen + GPT-SoVITS：实现全自动情绪驱动的AI有声书工作流"
+description: "Qwen + GPT-SoVITS：实现全自动情绪驱动的AI有声书工作流, 别再用机械音了！教你用AI自动化实现“情绪演播级”有声书, 从模型下载到代码实现：GPT-SoVITS 动态情绪切换全攻略"
 categories:
   - AI
-summary: "Qwen + GPT-SoVITS：实现全自动情绪驱动的AI有声书工作流"
+summary: "Qwen + GPT-SoVITS：实现全自动情绪驱动的AI有声书工作流, 别再用机械音了！教你用AI自动化实现“情绪演播级”有声书, 从模型下载到代码实现：GPT-SoVITS 动态情绪切换全攻略"
 aliases:
   - /ai/gpt-sovits.html
 ---
