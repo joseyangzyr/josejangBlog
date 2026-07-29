@@ -44,7 +44,7 @@ from tqdm import tqdm
 
 # 1. 远程 Qwen API 配置
 QWEN_API_KEY = "any_key"
-QWEN_BASE_URL = "https://127.0.0.1:8080" 
+QWEN_BASE_URL = "http://127.0.0.1:8080" 
 QWEN_MODEL_NAME = "Qwen3.6-36B-A3B" 
 
 # 2. 本地 GPT-SoVITS 地址
