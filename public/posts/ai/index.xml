@@ -10,13 +10,13 @@
     <webMaster>josejangoo@gmail.com (José Jang)</webMaster>
     <lastBuildDate>Sat, 25 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>让ai有感情的读课文</title>
+      <title>别再用机械音了！教你用AI自动化实现“情绪演播级”有声书</title>
       <link>http://localhost:1313/posts/ai/gpt-sovits/</link>
       <pubDate>Sat, 25 Jul 2026 00:00:00 +0000</pubDate>
       <author>josejangoo@gmail.com (José Jang)</author>
       <guid>http://localhost:1313/posts/ai/gpt-sovits/</guid>
       
-      <description>让ai有感情的读课文</description>
+      <description>Qwen + GPT-SoVITS：实现全自动情绪驱动的AI有声书工作流, 别再用机械音了！教你用AI自动化实现“情绪演播级”有声书, 从模型下载到代码实现：GPT-SoVITS 动态情绪切换全攻略</description>
       
     </item>
     
