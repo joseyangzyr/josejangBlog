@@ -8,7 +8,18 @@
     <language>zh-CN</language>
     <managingEditor>josejangoo@gmail.com (José Jang)</managingEditor>
     <webMaster>josejangoo@gmail.com (José Jang)</webMaster>
-    <lastBuildDate>Sat, 25 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Aug 2026 19:55:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>浏览器里下载模型总是失败，怎么解决？</title>
+      <link>http://localhost:1313/posts/ai/downloading-the-model-always-fails/</link>
+      <pubDate>Tue, 18 Aug 2026 19:55:00 +0800</pubDate>
+      <author>josejangoo@gmail.com (José Jang)</author>
+      <guid>http://localhost:1313/posts/ai/downloading-the-model-always-fails/</guid>
+      
+      <description>针对浏览器下载 Hugging Face 大模型容易中断的痛点，提供基于 huggingface_hub 的 Python 脚本方案，支持国内镜像源与断点续传。</description>
+      
+    </item>
+    
     <item>
       <title>别再用机械音了！教你用AI自动化实现“情绪演播级”有声书</title>
       <link>http://localhost:1313/posts/ai/gpt-sovits/</link>

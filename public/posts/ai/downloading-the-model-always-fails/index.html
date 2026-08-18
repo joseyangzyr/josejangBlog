@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">浏览器里下载模型总是失败，怎么解决？ | José&#39;s Blog</title>
+<meta property="og:title" content="浏览器里下载模型总是失败，怎么解决？ | José&#39;s Blog" />
+<meta name="twitter:title" content="浏览器里下载模型总是失败，怎么解决？ | José&#39;s Blog" />
+<meta itemprop="name" content="浏览器里下载模型总是失败，怎么解决？ | José&#39;s Blog" />
+<meta name="application-name" content="浏览器里下载模型总是失败，怎么解决？ | José&#39;s Blog" />
+<meta property="og:site_name" content="José｜一些过程被记录下来的地方" />
+
+<meta name="description" content="在使用浏览器直接下载 Hugging Face 大模型时经常遇到中断或失败？本文分享使用 Python 脚本配合国内镜像源实现断点续传的稳定下载方案。">
+<meta itemprop="description" content="在使用浏览器直接下载 Hugging Face 大模型时经常遇到中断或失败？本文分享使用 Python 脚本配合国内镜像源实现断点续传的稳定下载方案。" />
+<meta property="og:description" content="在使用浏览器直接下载 Hugging Face 大模型时经常遇到中断或失败？本文分享使用 Python 脚本配合国内镜像源实现断点续传的稳定下载方案。" />
+<meta name="twitter:description" content="在使用浏览器直接下载 Hugging Face 大模型时经常遇到中断或失败？本文分享使用 Python 脚本配合国内镜像源实现断点续传的稳定下载方案。" />
+
+<meta property="og:locale" content="zh-CN" />
+<meta name="language" content="zh-CN" />
+
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/posts/ai/downloading-the-model-always-fails/" title="简体中文" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2026-08-18T19:55:00&#43;0800 />
+    <meta property="article:published_time" content=2026-08-18T19:55:00&#43;0800 />
+    <meta property="og:url" content="http://localhost:1313/posts/ai/downloading-the-model-always-fails/" />
+
+    
+    <meta property="og:article:author" content="José Jang" />
+    <meta property="article:author" content="José Jang" />
+    <meta name="author" content="José Jang" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "浏览器里下载模型总是失败，怎么解决？",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2026-08-18",
+        "description": "在使用浏览器直接下载 Hugging Face 大模型时经常遇到中断或失败？本文分享使用 Python 脚本配合国内镜像源实现断点续传的稳定下载方案。",
+        "wordCount":  78 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2026-08-18",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "José\u0027s Blog"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.164.0">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/ai/downloading-the-model-always-fails/">
+	<meta property="og:site_name" content="José&#39;s Blog">
+	<meta property="og:title" content="浏览器里下载模型总是失败，怎么解决？">
+	<meta property="og:description" content="在使用浏览器直接下载 Hugging Face 大模型时经常遇到中断或失败？本文分享使用 Python 脚本配合国内镜像源实现断点续传的稳定下载方案。">
+	<meta property="og:locale" content="zh_CN">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-08-18T19:55:00+08:00">
+		<meta property="article:modified_time" content="2026-08-18T19:55:00+08:00">
+
+
+    
+    
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="浏览器里下载模型总是失败，怎么解决？">
+	<meta name="twitter:description" content="在使用浏览器直接下载 Hugging Face 大模型时经常遇到中断或失败？本文分享使用 Python 脚本配合国内镜像源实现断点续传的稳定下载方案。">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/ai/downloading-the-model-always-fails/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+    <meta name="color-scheme" content="light dark">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>首页</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        首页
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        文章
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        关于
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">浏览器里下载模型总是失败，怎么解决？</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2026-08-18T19:55:00&#43;08:00" itemprop="datePublished"> 2026-08-18 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>目录</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#先安装-huggingface_hub">先安装 huggingface_hub</a></li>
+    <li><a href="#使用脚本下载">使用脚本下载</a>
+      <ul>
+        <li><a href="#下载整个模型仓库">下载整个模型仓库</a></li>
+        <li><a href="#下载单个大文件">下载单个大文件</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <p>在浏览器下在模型时候，就快下载完成了，然后突然 “失败 - 已被禁止”</p>
+<p><img src="/posts/ai/downloading-the-model-always-fails/fails.png" alt="失败 - 已被禁止"></p>
+<h2 id="先安装-huggingface_hub">先安装 huggingface_hub</h2>
+<p>PowerShell执行</p>
+<blockquote>
+<p>pip install -U huggingface_hub</p>
+</blockquote>
+<h2 id="使用脚本下载">使用脚本下载</h2>
+<p>创建文件 download.py</p>
+<h3 id="下载整个模型仓库">下载整个模型仓库</h3>
+<p>这里以Qwen/Qwen3.8-27B为例子：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">huggingface_hub</span> <span class="kn">import</span> <span class="n">snapshot_download</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置国内镜像环境变量</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;HF_ENDPOINT&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;https://hf-mirror.com&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义你自己管理的模型存放路径（建议放在你项目可控的目录下）</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_model_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&#34;D:\MyModels\Qwen3.8-27B&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 下载整个仓库（会自动跳过已下载的部分，实现断点续传）</span>
+</span></span><span class="line"><span class="cl"><span class="n">snapshot_download</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">repo_id</span><span class="o">=</span><span class="s2">&#34;Qwen/Qwen3.8-27B&#34;</span><span class="p">,</span>  <span class="c1"># 对应页面上的作者/模型名</span>
+</span></span><span class="line"><span class="cl">    <span class="n">local_dir</span><span class="o">=</span><span class="n">my_model_path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">local_dir_use_symlinks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 如果只想下载 safetensors 和 json/txt 配置文件，可以加过滤（不需要可删掉下面这行）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">allow_patterns</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;*.safetensors&#34;</span><span class="p">,</span> <span class="s2">&#34;*.json&#34;</span><span class="p">,</span> <span class="s2">&#34;*.txt&#34;</span><span class="p">,</span> <span class="s2">&#34;*.jinja&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h3 id="下载单个大文件">下载单个大文件</h3>
+<p>如果是下载单个文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">huggingface_hub</span> <span class="kn">import</span> <span class="n">hf_hub_download</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;HF_ENDPOINT&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;https://hf-mirror.com&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义你自己管理的模型存放路径（建议放在你项目可控的目录下）</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_model_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&#34;D:\MyModels\Qwen3.8-27B-GGUF&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">hf_hub_download</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">repo_id</span><span class="o">=</span><span class="s2">&#34;unsloth/Qwen3.8-27B-GGUF&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filename</span><span class="o">=</span><span class="s2">&#34;Qwen3.8-27B-UD-Q8_K_XL.gguf&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">local_dir</span><span class="o">=</span><span class="n">my_model_path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">local_dir_use_symlinks</span><span class="o">=</span><span class="kc">False</span>    <span class="c1"># 关键：确保下载的是真实文件，而不是符号链接</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><p>它在下载时会先下载一个临时文件，并且会自动检测本地已有的部分文件大小。如果中途下载中断或手动停止，再次运行该 Python 脚本时，它会自动从断点处继续下载，不会从头开始。</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="mailto:josejangoo@gmail.com?subject=Hello&amp;body=Hi%20Jose" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/jos%c3%a9-jang-2218813a3" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="/index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2026 José Jang.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="回到顶部" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>
