@@ -8,7 +8,18 @@
     <language>zh-CN</language>
     <managingEditor>josejangoo@gmail.com (José Jang)</managingEditor>
     <webMaster>josejangoo@gmail.com (José Jang)</webMaster>
-    <lastBuildDate>Tue, 18 Aug 2026 19:55:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Oct 2026 23:58:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>免费在线跑 AI 大模型：基于 Kaggle &#43; Ngrok 搭建专属 OpenAI 兼容 API</title>
+      <link>http://localhost:1313/posts/ai/free-llm-kaggle-ngrok-api/</link>
+      <pubDate>Thu, 01 Oct 2026 23:58:00 +0800</pubDate>
+      <author>josejangoo@gmail.com (José Jang)</author>
+      <guid>http://localhost:1313/posts/ai/free-llm-kaggle-ngrok-api/</guid>
+      
+      <description>本文详细讲解如何结合 Kaggle 提供的免费 GPU 资源（NVIDIA T4 x2）与 Ngrok 内网穿透工具，零成本部署 llama-cpp-python 服务并生成标准的 OpenAI 兼容 API 接口，供 Chatbox、NextChat 等客户端免费使用。</description>
+      
+    </item>
+    
     <item>
       <title>浏览器里下载模型总是失败，怎么解决？</title>
       <link>http://localhost:1313/posts/ai/downloading-the-model-always-fails/</link>
