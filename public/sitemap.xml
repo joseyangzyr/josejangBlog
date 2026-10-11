@@ -2,19 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/posts/seo/</loc>
+    <lastmod>2026-10-11T19:06:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2026-10-11T19:06:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-10-11T19:06:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-10-11T19:06:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/seo/</loc>
+    <lastmod>2026-10-11T19:06:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/seo/</loc>
+    <lastmod>2026-10-11T19:06:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-10-11T19:06:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2026-10-11T19:06:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E5%BB%BA%E7%AB%99%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2026-10-11T19:06:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
+    <lastmod>2026-10-11T19:06:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ai/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E9%AB%98%E9%93%81%E9%87%87%E9%9B%86%E5%99%A8/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/seo/locoy-spider-ai-rewrite-plugin/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E5%86%85%E5%AE%B9%E7%AD%96%E7%95%A5/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/ai/</loc>
     <lastmod>2026-10-01T23:58:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/ai/</loc>
-    <lastmod>2026-10-01T23:58:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-10-01T23:58:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-10-01T23:58:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2026-10-01T23:58:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/ai/free-llm-kaggle-ngrok-api/</loc>
@@ -33,9 +66,6 @@
     <lastmod>2026-07-31T23:20:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/about-work/powershell-python-stuck/</loc>
-    <lastmod>2026-07-31T23:20:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2026-07-31T23:20:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/windows/</loc>
@@ -89,9 +119,6 @@
     <loc>http://localhost:1313/tags/php/</loc>
     <lastmod>2026-01-03T20:35:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/seo/</loc>
-    <lastmod>2026-01-03T20:35:00+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/sitemap/</loc>
     <lastmod>2026-01-03T20:35:00+08:00</lastmod>
   </url><url>
@@ -106,9 +133,6 @@
   </url><url>
     <loc>http://localhost:1313/posts/ai/deploy-deepseek-locally/</loc>
     <lastmod>2025-12-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/ai/</loc>
-    <lastmod>2025-07-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/rembg/</loc>
     <lastmod>2025-07-05T00:00:00+00:00</lastmod>

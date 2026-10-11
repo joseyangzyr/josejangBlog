@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工具 on José&#39;s Blog</title>
+    <link>http://localhost:1313/tags/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>josejangoo@gmail.com (José Jang)</managingEditor>
+    <webMaster>josejangoo@gmail.com (José Jang)</webMaster>
+    <lastBuildDate>Sun, 11 Oct 2026 19:06:00 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SEO 工具箱：我的工具、脚本与折腾笔记</title>
+      <link>http://localhost:1313/posts/seo/</link>
+      <pubDate>Sun, 11 Oct 2026 19:06:00 +0900</pubDate>
+      <author>josejangoo@gmail.com (José Jang)</author>
+      <guid>http://localhost:1313/posts/seo/</guid>
+      
+      <description>&lt;p&gt;这里记录了我平时折腾独立站和内容优化时，用得最顺手的一些 SEO 工具和辅助脚本。就当是个人的数字备忘录，后续踩了新坑或发现好用的玩意儿也会随时补充进来。&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

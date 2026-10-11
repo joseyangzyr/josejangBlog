@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SEO 工具箱：我的工具、脚本与折腾笔记 on José&#39;s Blog</title>
+    <link>http://localhost:1313/posts/seo/</link>
+    <description>Recent content in SEO 工具箱：我的工具、脚本与折腾笔记 on José&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>josejangoo@gmail.com (José Jang)</managingEditor>
+    <webMaster>josejangoo@gmail.com (José Jang)</webMaster>
+    <lastBuildDate>Sun, 11 Oct 2026 19:06:00 +0900</lastBuildDate><atom:link href="http://localhost:1313/posts/seo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>高铁采集器 AI 洗稿插件：伪原创并彻底去掉“AI 味”</title>
+      <link>http://localhost:1313/posts/seo/locoy-spider-ai-rewrite-plugin/</link>
+      <pubDate>Sun, 11 Oct 2026 00:00:00 +0000</pubDate>
+      <author>josejangoo@gmail.com (José Jang)</author>
+      <guid>http://localhost:1313/posts/seo/locoy-spider-ai-rewrite-plugin/</guid>
+      
+      <description>接入大模型 API 批量重写采集数据，重点分享我常用的去 AI 味 Prompt 技巧，让机器生成的文章读起来像真实站长的折腾笔记。</description>
+      
+    </item>
+    
+  </channel>
+</rss>
